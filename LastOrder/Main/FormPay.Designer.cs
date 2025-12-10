@@ -1,6 +1,6 @@
 ﻿namespace Main
 {
-    partial class Form2
+    partial class FormPay
     {
         /// <summary>
         /// Required designer variable.

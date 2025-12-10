@@ -11,15 +11,15 @@ using Oracle.DataAccess.Client;
 
 namespace Main
 {
-    public partial class Form2 : Form
+    public partial class FormPay : Form
     {
-        private Form1 mainForm;
+        private FormSaleManage mainForm;
         private ListView cartData;
         private string totalText;
         private int totalAmount;
         private string connectionString = "User Id = pos; Password = 1111; " + "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" + "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));";
 
-        public Form2(Form1 form, ListView cart, string total)
+        public FormPay(FormSaleManage form, ListView cart, string total)
         {
             InitializeComponent();
 
@@ -43,7 +43,7 @@ namespace Main
 
         private void btnCash_Click(object sender, EventArgs e)
         {
-            SaveToDatabase(totalAmount);
+            SaveToDatabase(totalAmount, "현금");
             MessageBox.Show("현금 결제가 완료되었습니다.");
 
             mainForm.ResetPOS();
@@ -57,7 +57,7 @@ namespace Main
 
             await Task.Delay(1000);
 
-            SaveToDatabase(totalAmount);
+            SaveToDatabase(totalAmount, "카드");
             MessageBox.Show("카드 승인 완료!");
             mainForm.ResetPOS();
             this.Close();
@@ -69,7 +69,7 @@ namespace Main
 
             int finalAmount = Math.Max(0, totalAmount - discount);
 
-            SaveToDatabase(finalAmount);
+            SaveToDatabase(finalAmount, "쿠폰");
 
             MessageBox.Show($"쿠폰 적용 완료! -1000원 할인\n결제 금액: {finalAmount}원");
             mainForm.ResetPOS();
@@ -85,7 +85,7 @@ namespace Main
             {
                 int finalAmount = Math.Max(0, totalAmount - point);
 
-                SaveToDatabase(finalAmount);
+                SaveToDatabase(finalAmount, "포인트");
 
                 MessageBox.Show($"포인트 {point}점 사용 완료!\n결제 금액: {finalAmount}원");
                 mainForm.ResetPOS();
@@ -112,7 +112,7 @@ namespace Main
 
                 int cardAmount = totalAmount - cashAmount;
 
-                SaveToDatabase(totalAmount);
+                SaveToDatabase(totalAmount, "분할결제");
 
                 MessageBox.Show(
                     $"분할 결제 완료!\n현금: {cashAmount}원\n카드: {cardAmount}원");
@@ -125,7 +125,7 @@ namespace Main
                 MessageBox.Show("잘못된 입력입니다.");
             }
         }
-        private void SaveToDatabase(int finalAmount)
+        private void SaveToDatabase(int finalAmount, string method)
         {
             try
             {
@@ -133,20 +133,18 @@ namespace Main
                 {
                     conn.Open();
 
-                    // 1) sid 생성
                     string getSid = "SELECT NVL(MAX(sid), 0) + 1 FROM pos_sales";
                     OracleCommand cmd = new OracleCommand(getSid, conn);
                     int newSid = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    // 2) sales 저장
                     string insertSales =
-                        "INSERT INTO pos_sales (sid, total) VALUES (:sid, :total)";
+                        "INSERT INTO pos_sales (sid, total, payment_method) VALUES (:sid, :total, :method)";
                     OracleCommand cmd2 = new OracleCommand(insertSales, conn);
                     cmd2.Parameters.Add(":sid", newSid);
                     cmd2.Parameters.Add(":total", finalAmount);
+                    cmd2.Parameters.Add(":method", method);
                     cmd2.ExecuteNonQuery();
 
-                    // 3) 상세 저장 + 재고 감소
                     foreach (ListViewItem item in cartData.Items)
                     {
                         string pname = item.SubItems[0].Text;
@@ -159,12 +157,10 @@ namespace Main
                         cmd3.Parameters.Add(":pname", pname);
                         int pid = Convert.ToInt32(cmd3.ExecuteScalar());
 
-                        // sdid 생성
                         string getSdid = "SELECT NVL(MAX(sdid), 0) + 1 FROM pos_sales_detail";
                         OracleCommand cmd4 = new OracleCommand(getSdid, conn);
                         int newSdid = Convert.ToInt32(cmd4.ExecuteScalar());
 
-                        // 상세 저장
                         string insertDetail =
                             "INSERT INTO pos_sales_detail (sdid, sid, pid, qty, amount) " +
                             "VALUES (:sdid, :sid, :pid, :qty, :amount)";
@@ -176,7 +172,6 @@ namespace Main
                         cmd5.Parameters.Add(":amount", amount);
                         cmd5.ExecuteNonQuery();
 
-                        // 📌 (NEW) 재고 감소 UPDATE
                         string updateStock =
                             "UPDATE product SET stock = stock - :qty WHERE pid = :pid";
                         OracleCommand cmd6 = new OracleCommand(updateStock, conn);

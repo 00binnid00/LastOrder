@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,49 +52,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormEventManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormEventManage.Designer.cs">
+      <DependentUpon>FormEventManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="FormProductManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormProductManage.Designer.cs">
+      <DependentUpon>FormProductManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="FormSaleManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="FormSaleManage.Designer.cs">
+      <DependentUpon>FormSaleManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="FormPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="FormPay.Designer.cs">
+      <DependentUpon>FormPay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="FormRefundManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="FormRefundManage.Designer.cs">
+      <DependentUpon>FormRefundManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesStats.Designer.cs">
+      <DependentUpon>FormSalesStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShipmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShipmentList.Designer.cs">
+      <DependentUpon>FormShipmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStockManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStockManage.Designer.cs">
+      <DependentUpon>FormStockManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormProductManage.resx">
+      <DependentUpon>FormProductManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormSaleManage.resx">
+      <DependentUpon>FormSaleManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="FormPay.resx">
+      <DependentUpon>FormPay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="FormRefundManage.resx">
+      <DependentUpon>FormRefundManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesStats.resx">
+      <DependentUpon>FormSalesStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShipmentList.resx">
+      <DependentUpon>FormShipmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStockManage.resx">
+      <DependentUpon>FormStockManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

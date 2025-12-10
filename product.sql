@@ -1,20 +1,40 @@
-drop table product purge
+DROP TABLE product CASCADE CONSTRAINTS PURGE;
 /
-create table product ( pid number primary key, pname varchar2(50), price number, stock number, category varchar2(20));
+CREATE TABLE product (
+    pid        NUMBER PRIMARY KEY,
+    pname      VARCHAR2(50),
+    price      NUMBER,
+    stock      NUMBER,
+    category   VARCHAR2(20),
+    imgpath    VARCHAR2(300),
+    eventinfo  VARCHAR2(200)
+);
 /
-insert into product values (1001, '코카콜라 500ml', 1800, 30, 'DRINK');
+INSERT INTO product VALUES (1001, '코카콜라 500ml', 1800, 30, 'DRINK', NULL, NULL);
+INSERT INTO product VALUES (1002, '사이다 500ml', 1700, 25, 'DRINK', NULL, NULL);
+
+INSERT INTO product VALUES (1003, '초코바', 1200, 40, 'SNACK', NULL, NULL);
+INSERT INTO product VALUES (1004, '포카칩', 1500, 20, 'SNACK', NULL, NULL);
+
+INSERT INTO product VALUES (1005, '크림빵', 2000, 15, 'BREAD', NULL, NULL);
+INSERT INTO product VALUES (1006, '단팥빵', 1800, 15, 'BREAD', NULL, NULL);
+
+INSERT INTO product VALUES (1007, '신라면 컵', 1500, 40, 'RAMEN', NULL, NULL);
+INSERT INTO product VALUES (1008, '진라면 컵', 1300, 35, 'RAMEN', NULL, NULL);
+
+INSERT INTO product VALUES (1009, '불고기 도시락', 4900, 12, 'LUNCHBOX', NULL, NULL);
+INSERT INTO product VALUES (1010, '제육 도시락', 5200, 10, 'LUNCHBOX', NULL, NULL);
+
+INSERT INTO product VALUES (1011, '삼각김밥 참치', 1500, 15, 'COLD', NULL, NULL);
+INSERT INTO product VALUES (1012, '샌드위치 햄치즈', 3500, 10, 'COLD', NULL, NULL);
+
+INSERT INTO product VALUES (1013, '냉동만두', 4800, 20, 'FROZEN', NULL, NULL);
+INSERT INTO product VALUES (1014, '치킨너겟 1kg', 8900, 12, 'FROZEN', NULL, NULL);
+
+INSERT INTO product VALUES (1015, '메로나', 1000, 40, 'ICECREAM', NULL, NULL);
+INSERT INTO product VALUES (1016, '비비빅', 1200, 30, 'ICECREAM', NULL, NULL);
+
+INSERT INTO product VALUES (1017, '건전지 AA', 3000, 50, 'ETC', NULL, NULL);
+INSERT INTO product VALUES (1018, '종량제 봉투(20L)', 700, 100, 'ETC', NULL, NULL);
 /
-insert into product values (1002, '사이다 500ml', 1700, 25, 'DRINK');
-/
-insert into product values (1003, '초코바', 1200, 40, 'SNACK');
-/
-insert into product values (1004, '포카칩', 1500, 20, 'SNACK');
-/
-insert into product values (1005, '삼각김밥 참치', 1500, 15, 'COLD');
-/
-insert into product values (1006, '샌드위치 햄치즈', 3500, 10, 'COLD');
-/
-insert into product values (1007, '건전지 AA', 3000, 50, 'ETC');
-/
-insert into product values (1008, '종량제 봉투(20L)', 700, 100, 'ETC');
-/
+COMMIT;

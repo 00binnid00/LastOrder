@@ -11,10 +11,10 @@ using Oracle.DataAccess.Client;
 
 namespace Main
 {
-    public partial class Form3 : Form
+    public partial class FormRefundManage : Form
     {
         private string connectionString = "User Id=pos; Password=1111;" + "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" + "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));";
-        public Form3()
+        public FormRefundManage()
         {
             InitializeComponent();
         }
@@ -34,12 +34,13 @@ namespace Main
                     conn.Open();
 
                     string sql = @"
-                SELECT sid,
-                       sdate,
-                       total,
-                       NVL(status, ' ') AS status
-                FROM pos_sales
-                ORDER BY sid DESC";
+                        SELECT sid,
+                               sdate,
+                               total,
+                               payment_method
+                        FROM pos_sales
+                        WHERE NVL(status, '정상') <> '환불'
+                        ORDER BY sid DESC";
 
                     OracleCommand cmd = new OracleCommand(sql, conn);
                     OracleDataReader dr = cmd.ExecuteReader();
@@ -49,12 +50,12 @@ namespace Main
                         string sid = dr["sid"].ToString();
                         string sdate = Convert.ToDateTime(dr["sdate"]).ToString("yyyy-MM-dd HH:mm");
                         string total = dr["total"].ToString();
-                        string status = dr["status"].ToString(); 
+                        string method = dr["payment_method"].ToString(); 
 
                         ListViewItem item = new ListViewItem(sid);
                         item.SubItems.Add(sdate);
                         item.SubItems.Add(total);
-                        item.SubItems.Add(status);           
+                        item.SubItems.Add(method);
 
                         listViewSales.Items.Add(item);
                     }
@@ -66,13 +67,13 @@ namespace Main
             }
         }
 
+
         private void listViewSales_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewSales.SelectedItems.Count == 0)
                 return;
 
             int sid = int.Parse(listViewSales.SelectedItems[0].Text);
-
             LoadSaleDetail(sid);
         }
         private void LoadSaleDetail(int sid)
@@ -98,7 +99,7 @@ namespace Main
 
                     while (dr.Read())
                     {
-                        string name = dr["PNAME"].ToString();   // ★ 대문자로 읽기
+                        string name = dr["PNAME"].ToString();
                         string qty = dr["QTY"].ToString();
                         string amount = dr["AMOUNT"].ToString();
 
@@ -116,22 +117,6 @@ namespace Main
             }
         }
 
-        private void 상품관리ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form1 main = new Form1();
-            main.ShowDialog();
-        }
-
-        private void 매출관리ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void 이벤트ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form4 ev = new Form4();
-            ev.ShowDialog();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -170,7 +155,10 @@ namespace Main
 
                     while (reader.Read())
                     {
-                        items.Add((Convert.ToInt32(reader["pid"]), Convert.ToInt32(reader["qty"])));
+                        items.Add((
+                            Convert.ToInt32(reader["pid"]),
+                            Convert.ToInt32(reader["qty"])
+                        ));
                     }
                     reader.Close();
 
@@ -186,9 +174,10 @@ namespace Main
                         cmd2.ExecuteNonQuery();
                     }
 
-                    // 3) 매출 상태를 '환불'로 설정
+                    // 3) 환불 상태 업데이트
                     string updateStatus =
                         "UPDATE pos_sales SET status = '환불' WHERE sid = :sid";
+
                     OracleCommand cmd3 = new OracleCommand(updateStatus, conn);
                     cmd3.Parameters.Add(":sid", sid);
                     cmd3.ExecuteNonQuery();
@@ -196,19 +185,13 @@ namespace Main
 
                 MessageBox.Show($"매출번호 {sid} 환불 완료!");
 
-                LoadSalesList();   // 목록 새로고침
+                LoadSalesList();   // 전체 새로고침
                 listViewDetail.Items.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("환불 처리 오류: " + ex.Message);
             }
-        }
-
-        private void 환불ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form3 salesForm = new Form3();
-            salesForm.ShowDialog();
         }
     }
 }
