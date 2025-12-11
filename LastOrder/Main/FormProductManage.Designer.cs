@@ -35,22 +35,22 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.picProduct = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.txtEvent = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnSelectImage = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,11 @@
             this.columnHeader5.Text = "이미지 경로";
             this.columnHeader5.Width = 120;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "이벤트";
+            this.columnHeader6.Width = 150;
+            // 
             // picProduct
             // 
             this.picProduct.Location = new System.Drawing.Point(16, 350);
@@ -133,37 +138,36 @@
             this.groupBox1.Size = new System.Drawing.Size(773, 192);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "상품 정보";
             // 
-            // label2
+            // cbCategory
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(37, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "상품명 :";
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(167, 154);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(571, 23);
+            this.cbCategory.TabIndex = 7;
             // 
-            // label3
+            // txtEvent
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(37, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 18);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "가격 :";
+            this.txtEvent.Location = new System.Drawing.Point(167, 111);
+            this.txtEvent.Name = "txtEvent";
+            this.txtEvent.Size = new System.Drawing.Size(571, 25);
+            this.txtEvent.TabIndex = 6;
             // 
-            // label4
+            // txtPrice
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(37, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 18);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "이벤트 :";
+            this.txtPrice.Location = new System.Drawing.Point(167, 73);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(571, 25);
+            this.txtPrice.TabIndex = 5;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(167, 32);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(571, 25);
+            this.txtName.TabIndex = 4;
             // 
             // label5
             // 
@@ -175,26 +179,35 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "카테고리 :";
             // 
-            // txtName
+            // label4
             // 
-            this.txtName.Location = new System.Drawing.Point(167, 32);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(571, 25);
-            this.txtName.TabIndex = 4;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(37, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 18);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "이벤트 :";
             // 
-            // txtPrice
+            // label3
             // 
-            this.txtPrice.Location = new System.Drawing.Point(167, 73);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(571, 25);
-            this.txtPrice.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(37, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 18);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "가격 :";
             // 
-            // txtEvent
+            // label2
             // 
-            this.txtEvent.Location = new System.Drawing.Point(167, 111);
-            this.txtEvent.Name = "txtEvent";
-            this.txtEvent.Size = new System.Drawing.Size(571, 25);
-            this.txtEvent.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(37, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "상품명 :";
             // 
             // btnSelectImage
             // 
@@ -245,19 +258,6 @@
             this.btnRefresh.Text = "새로고침";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(167, 154);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(571, 23);
-            this.cbCategory.TabIndex = 7;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "이벤트";
-            this.columnHeader6.Width = 150;
             // 
             // FormProductManage
             // 

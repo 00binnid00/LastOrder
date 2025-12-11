@@ -13,35 +13,26 @@ namespace Main
 {
     public partial class FormEventManage : Form
     {
-        private string connectionString =
+        private string connStr =
             "User Id=pos; Password=1111;" +
             "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))" +
             "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));";
 
         private int selectedPid = -1;
         private int selectedEid = -1;
-
-        private int ParseIntFromTextBox(TextBox tb)
-        {
-            if (int.TryParse(tb.Text.Trim(), out int v))
-                return v;
-            return 0;
-        }
-
         private class EventInfo
         {
             public int Pid;
             public int Eid;
-            public string EventName;
-            public string DiscountType;
+            public string EName;
+            public string EType;
             public int DiscountValue;
-            public int BundleBuy;
-            public int BundleGet;
+            public int BuyQty;
+            public int FreeQty;
             public string Description;
             public DateTime? StartDate;
             public DateTime? EndDate;
         }
-
 
         public FormEventManage()
         {
@@ -55,15 +46,14 @@ namespace Main
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text.Trim();
-            LoadProductEventList(keyword);
+            LoadEventList(txtSearch.Text.Trim());
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnSearch_Click(sender, e);
+                btnSearch.PerformClick();
                 e.SuppressKeyPress = true;
             }
         }
@@ -71,114 +61,116 @@ namespace Main
         private void FormEventManage_Load(object sender, EventArgs e)
         {
             txtSearch.KeyDown += txtSearch_KeyDown;
-
-            LoadProductEventList();
+            LoadEventList();
         }
-        private void LoadProductEventList(string keyword = "")
+        private void LoadEventList(string keyword = "")
         {
             lvEvent.Items.Clear();
 
-            using (OracleConnection conn = new OracleConnection(connectionString))
+            try
             {
-                conn.Open();
-
-                string sql = @"
-                    SELECT 
-                        p.pid,
-                        p.pname,
-                        p.price,
-                        p.category,
-                        e.eid,
-                        e.event_name,
-                        e.discount_type,
-                        e.discount_value,
-                        e.bundle_buy,
-                        e.bundle_get,
-                        e.description,
-                        e.start_date,
-                        e.end_date
-                    FROM product p
-                    LEFT JOIN event e
-                      ON p.pid = e.pid
-                    WHERE LOWER(p.pname) LIKE LOWER(:kw)
-                    ORDER BY p.pid";
-
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add(":kw", "%" + keyword + "%");
-
-                OracleDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
+                using (OracleConnection conn = new OracleConnection(connStr))
                 {
-                    int pid = Convert.ToInt32(dr["pid"]);
-                    string pname = dr["pname"].ToString();
-                    int price = Convert.ToInt32(dr["price"]);
-                    string category = dr["category"].ToString();
+                    conn.Open();
 
-                    int eid = dr["eid"] == DBNull.Value ? -1 : Convert.ToInt32(dr["eid"]);
-                    string eventName = dr["event_name"] == DBNull.Value ? "" : dr["event_name"].ToString();
-                    string discountType = dr["discount_type"] == DBNull.Value ? "" : dr["discount_type"].ToString();
-                    int discountValue = dr["discount_value"] == DBNull.Value ? 0 : Convert.ToInt32(dr["discount_value"]);
-                    int bundleBuy = dr["bundle_buy"] == DBNull.Value ? 0 : Convert.ToInt32(dr["bundle_buy"]);
-                    int bundleGet = dr["bundle_get"] == DBNull.Value ? 0 : Convert.ToInt32(dr["bundle_get"]);
-                    string desc = dr["description"] == DBNull.Value ? "" : dr["description"].ToString();
+                    string sql = @"
+                        SELECT 
+                            p.pid,
+                            p.pname,
+                            p.price,
+                            p.category,
+                            e.eid,
+                            e.ename,
+                            e.etype,
+                            e.discount_value,
+                            e.buy_qty,
+                            e.free_qty,
+                            e.sdate,
+                            e.edate,
+                            e.description
+                        FROM product p
+                        LEFT JOIN pos_event e ON p.pid = e.pid
+                        WHERE LOWER(p.pname) LIKE LOWER(:key)
+                        ORDER BY p.pid";
 
-                    DateTime? startDate = null;
-                    DateTime? endDate = null;
-                    string period = "";
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    cmd.Parameters.Add(":key", "%" + keyword + "%");
 
-                    if (dr["start_date"] != DBNull.Value)
+                    OracleDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
                     {
-                        startDate = Convert.ToDateTime(dr["start_date"]);
-                        endDate = Convert.ToDateTime(dr["end_date"]);
-                        period = $"{startDate:yyyy-MM-dd} ~ {endDate:yyyy-MM-dd}";
+                        int pid = Convert.ToInt32(dr["pid"]);
+                        int eid = dr["eid"] == DBNull.Value ? -1 : Convert.ToInt32(dr["eid"]);
+
+                        string pname = dr["pname"].ToString();
+                        int price = Convert.ToInt32(dr["price"]);
+                        string category = dr["category"].ToString();
+
+                        string ename = dr["ename"] == DBNull.Value ? "" : dr["ename"].ToString();
+                        string etype = dr["etype"] == DBNull.Value ? "" : dr["etype"].ToString();
+                        int dval = dr["discount_value"] == DBNull.Value ? 0 : Convert.ToInt32(dr["discount_value"]);
+                        int buy = dr["buy_qty"] == DBNull.Value ? 0 : Convert.ToInt32(dr["buy_qty"]);
+                        int free = dr["free_qty"] == DBNull.Value ? 0 : Convert.ToInt32(dr["free_qty"]);
+                        string desc = dr["description"] == DBNull.Value ? "" : dr["description"].ToString();
+
+                        DateTime? sdate = dr["sdate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["sdate"]);
+                        DateTime? edate = dr["edate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["edate"]);
+
+                        string period = (sdate != null ? $"{sdate:yyyy-MM-dd} ~ {edate:yyyy-MM-dd}" : "이벤트 없음");
+
+                        string displayType =
+                            etype == "AMOUNT" ? $"정액 ({dval}원)" :
+                            etype == "PERCENT" ? $"퍼센트 ({dval}%)" :
+                            etype == "BUNDLE" ? $"묶음 ({buy}+{free})" : "";
+
+                        // ListView에 보여줄 내용
+                        ListViewItem item = new ListViewItem(pname);
+                        item.SubItems.Add(price.ToString());
+                        item.SubItems.Add(category);
+                        item.SubItems.Add(ename);
+                        item.SubItems.Add(displayType);
+                        item.SubItems.Add(period);
+
+                        // ★ 강타입 EventInfo를 Tag에 넣어둠
+                        EventInfo info = new EventInfo
+                        {
+                            Pid = pid,
+                            Eid = eid,
+                            EName = ename,
+                            EType = etype,
+                            DiscountValue = dval,
+                            BuyQty = buy,
+                            FreeQty = free,
+                            Description = desc,
+                            StartDate = sdate,
+                            EndDate = edate
+                        };
+
+                        item.Tag = info;
+
+                        lvEvent.Items.Add(item);
                     }
-
-                    string displayType = "";
-                    if (discountType == "AMOUNT")
-                        displayType = $"금액 ({discountValue}원)";
-                    else if (discountType == "PERCENT")
-                        displayType = $"퍼센트 ({discountValue}%)";
-                    else if (discountType == "BUNDLE")
-                        displayType = $"묶음 ({bundleBuy}+{bundleGet})";
-
-                    ListViewItem item = new ListViewItem(pname);
-                    item.SubItems.Add(price.ToString());
-                    item.SubItems.Add(category);
-                    item.SubItems.Add(eventName);
-                    item.SubItems.Add(displayType);
-                    item.SubItems.Add(period); 
-
-                    item.Tag = new EventInfo
-                    {
-                        Pid = pid,
-                        Eid = eid,
-                        EventName = eventName,
-                        DiscountType = discountType,
-                        DiscountValue = discountValue,
-                        BundleBuy = bundleBuy,
-                        BundleGet = bundleGet,
-                        Description = desc,
-                        StartDate = startDate,
-                        EndDate = endDate
-                    };
-
-                    lvEvent.Items.Add(item);
                 }
+
+                selectedPid = -1;
+                selectedEid = -1;
+                lblSelectedProduct.Text = "(상품 미선택)";
+                ClearInput();
             }
-            selectedPid = -1;
-            selectedEid = -1;
-            lblSelectedProduct.Text = "(상품 미선택)";
-            ClearInput();
+            catch (Exception ex)
+            {
+                MessageBox.Show("이벤트 목록 로드 오류: " + ex.Message);
+            }
         }
 
         private void ClearInput()
         {
             txtEventName.Text = "";
             txtDescription.Text = "";
-            numDiscountValue.Text = "0";
-            numBuy.Text = "0";
-            numGet.Text = "0";
+            numDiscountValue.Value = 0;
+            numBuy.Value = 1;
+            numGet.Value = 1;
             rbAmount.Checked = false;
             rbPercent.Checked = false;
             rbBundle.Checked = false;
@@ -188,36 +180,29 @@ namespace Main
 
         private void lvEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvEvent.SelectedItems.Count == 0)
-                return;
+            if (lvEvent.SelectedItems.Count == 0) return;
 
-            var item = lvEvent.SelectedItems[0];
-            lblSelectedProduct.Text = item.SubItems[0].Text;
+            var tag = lvEvent.SelectedItems[0].Tag as EventInfo;
+            if (tag == null) return;
 
-            if (item.Tag is EventInfo info)
-            {
-                selectedPid = info.Pid;
-                selectedEid = info.Eid;
+            selectedPid = tag.Pid;
+            selectedEid = tag.Eid;
 
-                txtEventName.Text = info.EventName ?? "";
-                txtDescription.Text = info.Description ?? "";
+            lblSelectedProduct.Text = lvEvent.SelectedItems[0].Text;   // 상품명
 
-                numDiscountValue.Text = info.DiscountValue.ToString();
-                numBuy.Text = info.BundleBuy.ToString();
-                numGet.Text = info.BundleGet.ToString();
+            txtEventName.Text = tag.EName;
+            txtDescription.Text = tag.Description;
 
-                rbAmount.Checked = (info.DiscountType == "AMOUNT");
-                rbPercent.Checked = (info.DiscountType == "PERCENT");
-                rbBundle.Checked = (info.DiscountType == "BUNDLE");
+            numDiscountValue.Value = tag.DiscountValue;
+            numBuy.Value = tag.BuyQty;
+            numGet.Value = tag.FreeQty;
 
-                if (info.StartDate.HasValue) dtStart.Value = info.StartDate.Value;
-                if (info.EndDate.HasValue) dtEnd.Value = info.EndDate.Value;
-            }
-            else
-            {
-                selectedPid = -1;
-                selectedEid = -1;
-            }
+            rbAmount.Checked = (tag.EType == "AMOUNT");
+            rbPercent.Checked = (tag.EType == "PERCENT");
+            rbBundle.Checked = (tag.EType == "BUNDLE");
+
+            if (tag.StartDate.HasValue) dtStart.Value = tag.StartDate.Value;
+            if (tag.EndDate.HasValue) dtEnd.Value = tag.EndDate.Value;
         }
         private string GetDiscountType()
         {
@@ -231,154 +216,155 @@ namespace Main
         {
             if (selectedPid == -1)
             {
-                MessageBox.Show("이벤트를 등록할 상품을 먼저 선택하세요.");
+                MessageBox.Show("상품을 먼저 선택하세요.");
                 return;
             }
 
-            string dtype = GetDiscountType();
-            if (dtype == "")
+            string etype = GetDiscountType();
+            if (etype == "")
             {
                 MessageBox.Show("할인 유형을 선택하세요.");
                 return;
             }
 
-            int discountValue = (int)numDiscountValue.Value;
-            int buy = (int)numBuy.Value;
-            int get = (int)numGet.Value;
-
-            if (dtype == "BUNDLE" && (buy <= 0 || get <= 0))
+            try
             {
-                MessageBox.Show("묶음할인(1+1, 2+1 등)은 구매/무료 개수를 입력하세요.");
-                return;
-            }
+                using (OracleConnection conn = new OracleConnection(connStr))
+                {
+                    conn.Open();
 
-            using (OracleConnection conn = new OracleConnection(connectionString))
+                    string sql = @"
+                        INSERT INTO pos_event (
+                            eid, pid, ename, etype,
+                            discount_value, buy_qty, free_qty,
+                            description, sdate, edate
+                        ) VALUES (
+                            (SELECT NVL(MAX(eid),0)+1 FROM pos_event),
+                            :pid, :ename, :etype,
+                            :dval, :buy, :fqty,
+                            :p_desc, :sdate, :edate
+                        )";
+
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    cmd.Parameters.Add(":pid", selectedPid);
+                    cmd.Parameters.Add(":ename", txtEventName.Text);
+                    cmd.Parameters.Add(":etype", etype);
+                    cmd.Parameters.Add(":dval", (int)numDiscountValue.Value);
+                    cmd.Parameters.Add(":buy", (int)numBuy.Value);
+                    cmd.Parameters.Add(":fqty", (int)numGet.Value);
+                    cmd.Parameters.Add(":p_desc", txtDescription.Text);
+                    cmd.Parameters.Add(":sdate", dtStart.Value);
+                    cmd.Parameters.Add(":edate", dtEnd.Value);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("이벤트가 등록되었습니다.");
+                LoadEventList(txtSearch.Text.Trim());
+            }
+            catch (OracleException ox)
             {
-                conn.Open();
-
-                string sql = @"
-                    INSERT INTO event (
-                        eid, pid, event_name, discount_type,
-                        discount_value, bundle_buy, bundle_get,
-                        description, start_date, end_date
-                    ) VALUES (
-                        (SELECT NVL(MAX(eid),0) + 1 FROM event),
-                        :pid, :name, :dtype,
-                        :dvalue, :buy, :get,
-                        :desc, :sdate, :edate
-                    )";
-
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add(":pid", selectedPid);
-                cmd.Parameters.Add(":name", txtEventName.Text);
-                cmd.Parameters.Add(":dtype", dtype);
-                cmd.Parameters.Add(":dvalue", discountValue);
-                cmd.Parameters.Add(":buy", buy);
-                cmd.Parameters.Add(":get", get);
-                cmd.Parameters.Add(":desc", txtDescription.Text);
-                cmd.Parameters.Add(":sdate", dtStart.Value);
-                cmd.Parameters.Add(":edate", dtEnd.Value);
-
-                cmd.ExecuteNonQuery();
+                MessageBox.Show("이벤트 등록 오류: " + ox.Message);
             }
-
-            MessageBox.Show("이벤트가 등록되었습니다.");
-            LoadProductEventList(txtSearch.Text.Trim());
+            catch (Exception ex)
+            {
+                MessageBox.Show("이벤트 등록 오류: " + ex.Message);
+            }
         }
 
-        private void btnUpload_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (selectedEid == -1)
             {
-                MessageBox.Show("수정할 이벤트가 선택되지 않았습니다.");
+                MessageBox.Show("수정할 이벤트를 선택하세요.");
                 return;
             }
 
-            string dtype = GetDiscountType();
-            if (dtype == "")
+            string etype = GetDiscountType();
+            if (etype == "")
             {
                 MessageBox.Show("할인 유형을 선택하세요.");
                 return;
             }
 
-            int discountValue = (int)numDiscountValue.Value;
-            int buy = (int)numBuy.Value;
-            int get = (int)numGet.Value;
-
-            if (dtype == "BUNDLE" && (buy <= 0 || get <= 0))
+            try
             {
-                MessageBox.Show("묶음할인(1+1, 2+1 등)은 구매/무료 개수를 입력하세요.");
-                return;
-            }
+                using (OracleConnection conn = new OracleConnection(connStr))
+                {
+                    conn.Open();
 
-            using (OracleConnection conn = new OracleConnection(connectionString))
+                    string sql = @"
+                        UPDATE pos_event
+                        SET ename = :ename,
+                            etype = :etype,
+                            discount_value = :dval,
+                            buy_qty = :buy,
+                            free_qty = :fqty,
+                            description = :p_desc,
+                            sdate = :sdate,
+                            edate = :edate
+                        WHERE eid = :eid";
+
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    cmd.Parameters.Add(":ename", txtEventName.Text);
+                    cmd.Parameters.Add(":etype", etype);
+                    cmd.Parameters.Add(":dval", (int)numDiscountValue.Value);
+                    cmd.Parameters.Add(":buy", (int)numBuy.Value);
+                    cmd.Parameters.Add(":fqty", (int)numGet.Value);
+                    cmd.Parameters.Add(":p_desc", txtDescription.Text);
+                    cmd.Parameters.Add(":sdate", dtStart.Value);
+                    cmd.Parameters.Add(":edate", dtEnd.Value);
+                    cmd.Parameters.Add(":eid", selectedEid);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("이벤트가 수정되었습니다.");
+                LoadEventList(txtSearch.Text.Trim());
+            }
+            catch (Exception ex)
             {
-                conn.Open();
-
-                string sql = @"
-                    UPDATE event
-                    SET event_name    = :name,
-                        discount_type = :dtype,
-                        discount_value= :dvalue,
-                        bundle_buy    = :buy,
-                        bundle_get    = :get,
-                        description   = :desc,
-                        start_date    = :sdate,
-                        end_date      = :edate
-                    WHERE eid = :eid";
-
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add(":name", txtEventName.Text);
-                cmd.Parameters.Add(":dtype", dtype);
-                cmd.Parameters.Add(":dvalue", discountValue);
-                cmd.Parameters.Add(":buy", buy);
-                cmd.Parameters.Add(":get", get);
-                cmd.Parameters.Add(":desc", txtDescription.Text);
-                cmd.Parameters.Add(":sdate", dtStart.Value);
-                cmd.Parameters.Add(":edate", dtEnd.Value);
-                cmd.Parameters.Add(":eid", selectedEid);
-
-                cmd.ExecuteNonQuery();
+                MessageBox.Show("이벤트 수정 오류: " + ex.Message);
             }
-
-            MessageBox.Show("이벤트가 수정되었습니다.");
-            LoadProductEventList(txtSearch.Text.Trim());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (selectedEid == -1)
             {
-                MessageBox.Show("삭제할 이벤트가 선택되지 않았습니다.");
+                MessageBox.Show("삭제할 이벤트를 선택하세요.");
                 return;
             }
 
-            DialogResult dr = MessageBox.Show(
-                "정말 이 이벤트를 삭제하시겠습니까?",
-                "이벤트 삭제",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+            if (MessageBox.Show("정말 삭제하시겠습니까?", "삭제 확인",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                return;
 
-            if (dr != DialogResult.Yes) return;
-
-            using (OracleConnection conn = new OracleConnection(connectionString))
+            try
             {
-                conn.Open();
+                using (OracleConnection conn = new OracleConnection(connStr))
+                {
+                    conn.Open();
 
-                string sql = "DELETE FROM event WHERE eid = :eid";
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add(":eid", selectedEid);
-                cmd.ExecuteNonQuery();
+                    string sql = "DELETE FROM pos_event WHERE eid = :eid";
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    cmd.Parameters.Add(":eid", selectedEid);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("이벤트가 삭제되었습니다.");
+                LoadEventList(txtSearch.Text.Trim());
             }
-
-            MessageBox.Show("이벤트가 삭제되었습니다.");
-            LoadProductEventList(txtSearch.Text.Trim());
+            catch (Exception ex)
+            {
+                MessageBox.Show("이벤트 삭제 오류: " + ex.Message);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
-            LoadProductEventList();
+            LoadEventList();
         }
     }
 }

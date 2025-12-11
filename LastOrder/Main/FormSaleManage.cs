@@ -65,7 +65,7 @@ namespace Main
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadProducts();
+            LoadProducts("ALL");
         }
 
         private void UpdateTotal()

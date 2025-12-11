@@ -18,6 +18,22 @@ namespace Main
             this.IsMdiContainer = true;
             this.WindowState = FormWindowState.Maximized;
         }
+        private void OpenPOSForm()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm is FormSaleManage)
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            FormSaleManage pos = new FormSaleManage();
+            pos.MdiParent = this;
+            pos.WindowState = FormWindowState.Maximized;
+            pos.Show();
+        }
         private void OpenChildForm(Form child)
         {
             foreach (Form f in this.MdiChildren)
@@ -67,6 +83,20 @@ namespace Main
         private void menuEventManage_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormEventManage());
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            this.IsMdiContainer = true;
+            OpenPOSForm();
+        }
+
+        private void 사용자모드로전환ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelfCheckout self = new FormSelfCheckout();
+            self.WindowState = FormWindowState.Maximized;
+            self.Show();
+            this.Hide();
         }
     }
 }

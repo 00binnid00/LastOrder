@@ -40,6 +40,7 @@
             this.menuShipment = new System.Windows.Forms.ToolStripMenuItem();
             this.이벤트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEventManage = new System.Windows.Forms.ToolStripMenuItem();
+            this.사용자모드로전환ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@
             this.결제ToolStripMenuItem,
             this.상품관리ToolStripMenuItem,
             this.매출관리ToolStripMenuItem,
-            this.이벤트ToolStripMenuItem});
+            this.이벤트ToolStripMenuItem,
+            this.사용자모드로전환ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -69,14 +71,14 @@
             // menuSaleManage
             // 
             this.menuSaleManage.Name = "menuSaleManage";
-            this.menuSaleManage.Size = new System.Drawing.Size(224, 26);
+            this.menuSaleManage.Size = new System.Drawing.Size(157, 26);
             this.menuSaleManage.Text = "판매 관리";
             this.menuSaleManage.Click += new System.EventHandler(this.menuSaleManage_Click);
             // 
             // menuRefundManager
             // 
             this.menuRefundManager.Name = "menuRefundManager";
-            this.menuRefundManager.Size = new System.Drawing.Size(224, 26);
+            this.menuRefundManager.Size = new System.Drawing.Size(157, 26);
             this.menuRefundManager.Text = "환불 관리";
             this.menuRefundManager.Click += new System.EventHandler(this.menuRefundManager_Click);
             // 
@@ -115,14 +117,14 @@
             // menuSalesStats
             // 
             this.menuSalesStats.Name = "menuSalesStats";
-            this.menuSalesStats.Size = new System.Drawing.Size(224, 26);
+            this.menuSalesStats.Size = new System.Drawing.Size(197, 26);
             this.menuSalesStats.Text = "매출 통계";
             this.menuSalesStats.Click += new System.EventHandler(this.menuSalesStats_Click);
             // 
             // menuShipment
             // 
             this.menuShipment.Name = "menuShipment";
-            this.menuShipment.Size = new System.Drawing.Size(224, 26);
+            this.menuShipment.Size = new System.Drawing.Size(197, 26);
             this.menuShipment.Text = "출고(판매 내역)";
             this.menuShipment.Click += new System.EventHandler(this.menuShipment_Click);
             // 
@@ -137,9 +139,16 @@
             // menuEventManage
             // 
             this.menuEventManage.Name = "menuEventManage";
-            this.menuEventManage.Size = new System.Drawing.Size(224, 26);
+            this.menuEventManage.Size = new System.Drawing.Size(172, 26);
             this.menuEventManage.Text = "이벤트 관리";
             this.menuEventManage.Click += new System.EventHandler(this.menuEventManage_Click);
+            // 
+            // 사용자모드로전환ToolStripMenuItem
+            // 
+            this.사용자모드로전환ToolStripMenuItem.Name = "사용자모드로전환ToolStripMenuItem";
+            this.사용자모드로전환ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.사용자모드로전환ToolStripMenuItem.Text = "사용자 모드로 전환";
+            this.사용자모드로전환ToolStripMenuItem.Click += new System.EventHandler(this.사용자모드로전환ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -151,6 +160,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -172,5 +182,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuShipment;
         private System.Windows.Forms.ToolStripMenuItem 이벤트ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuEventManage;
+        private System.Windows.Forms.ToolStripMenuItem 사용자모드로전환ToolStripMenuItem;
     }
 }

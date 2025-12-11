@@ -1,16 +1,16 @@
 ﻿namespace Main
 {
-    partial class FormSaleManage
+    partial class FormSelfCheckout
     {
         /// <summary>
-        /// 필수 디자이너 변수입니다.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 사용 중인 모든 리소스를 정리합니다.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form 디자이너에서 생성한 코드
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 디자이너 지원에 필요한 메서드입니다. 
-        /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -39,24 +39,23 @@
             this.btnCategoryRamen = new System.Windows.Forms.Button();
             this.btnCategorySnack = new System.Windows.Forms.Button();
             this.btnCategoryDrink = new System.Windows.Forms.Button();
-            this.lvProduct = new System.Windows.Forms.ListView();
-            this.colProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.lvCart = new System.Windows.Forms.ListView();
             this.colCartName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCartQty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCartAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.numQty = new System.Windows.Forms.NumericUpDown();
-            this.lblTotal = new System.Windows.Forms.Label();
+            this.lvProduct = new System.Windows.Forms.ListView();
+            this.colProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnPay = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnMinus = new System.Windows.Forms.Button();
+            this.btnPlus = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.관리자모드로전환ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,10 +70,10 @@
             this.groupBox1.Controls.Add(this.btnCategoryRamen);
             this.groupBox1.Controls.Add(this.btnCategorySnack);
             this.groupBox1.Controls.Add(this.btnCategoryDrink);
-            this.groupBox1.Location = new System.Drawing.Point(12, 58);
+            this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(151, 478);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "카테고리";
             // 
@@ -88,7 +87,7 @@
             this.btnCategoryAll.TabIndex = 14;
             this.btnCategoryAll.Text = "전체";
             this.btnCategoryAll.UseVisualStyleBackColor = false;
-            this.btnCategoryAll.Click += new System.EventHandler(this.button11_Click);
+            this.btnCategoryAll.Click += new System.EventHandler(this.btnCategoryAll_Click);
             // 
             // btnCategoryLunch
             // 
@@ -196,34 +195,31 @@
             this.btnCategoryDrink.TabIndex = 5;
             this.btnCategoryDrink.Text = "음료";
             this.btnCategoryDrink.UseVisualStyleBackColor = false;
-            this.btnCategoryDrink.Click += new System.EventHandler(this.button5_Click);
+            this.btnCategoryDrink.Click += new System.EventHandler(this.btnCategoryDrink_Click);
             // 
-            // lvProduct
+            // btnClear
             // 
-            this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colProductName,
-            this.colPrice});
-            this.lvProduct.FullRowSelect = true;
-            this.lvProduct.HideSelection = false;
-            this.lvProduct.Location = new System.Drawing.Point(183, 58);
-            this.lvProduct.MultiSelect = false;
-            this.lvProduct.Name = "lvProduct";
-            this.lvProduct.Size = new System.Drawing.Size(811, 152);
-            this.lvProduct.TabIndex = 1;
-            this.lvProduct.UseCompatibleStateImageBehavior = false;
-            this.lvProduct.View = System.Windows.Forms.View.Details;
-            this.lvProduct.SelectedIndexChanged += new System.EventHandler(this.lvProduct_SelectedIndexChanged);
-            this.lvProduct.Click += new System.EventHandler(this.lvProduct_Click);
+            this.btnClear.BackColor = System.Drawing.Color.Thistle;
+            this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClear.Location = new System.Drawing.Point(884, 478);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(109, 30);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "전체 취소";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // colProductName
+            // btnDelete
             // 
-            this.colProductName.Text = "상품명";
-            this.colProductName.Width = 150;
-            // 
-            // colPrice
-            // 
-            this.colPrice.Text = "가격";
-            this.colPrice.Width = 100;
+            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.Location = new System.Drawing.Point(769, 478);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(109, 30);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "선택 취소";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lvCart
             // 
@@ -233,11 +229,11 @@
             this.colCartAmount});
             this.lvCart.FullRowSelect = true;
             this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(183, 280);
+            this.lvCart.Location = new System.Drawing.Point(182, 293);
             this.lvCart.MultiSelect = false;
             this.lvCart.Name = "lvCart";
             this.lvCart.Size = new System.Drawing.Size(811, 179);
-            this.lvCart.TabIndex = 2;
+            this.lvCart.TabIndex = 16;
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
             // 
@@ -256,132 +252,119 @@
             this.colCartAmount.Text = "금액";
             this.colCartAmount.Width = 100;
             // 
-            // btnAdd
+            // lvProduct
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Thistle;
-            this.btnAdd.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.Location = new System.Drawing.Point(837, 222);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(157, 30);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "담기";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAddCart_Click);
+            this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colProductName,
+            this.colPrice});
+            this.lvProduct.FullRowSelect = true;
+            this.lvProduct.HideSelection = false;
+            this.lvProduct.Location = new System.Drawing.Point(182, 71);
+            this.lvProduct.MultiSelect = false;
+            this.lvProduct.Name = "lvProduct";
+            this.lvProduct.Size = new System.Drawing.Size(811, 152);
+            this.lvProduct.TabIndex = 15;
+            this.lvProduct.UseCompatibleStateImageBehavior = false;
+            this.lvProduct.View = System.Windows.Forms.View.Details;
+            this.lvProduct.SelectedIndexChanged += new System.EventHandler(this.lvProduct_SelectedIndexChanged);
             // 
-            // numQty
+            // colProductName
             // 
-            this.numQty.Location = new System.Drawing.Point(657, 225);
-            this.numQty.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQty.Name = "numQty";
-            this.numQty.Size = new System.Drawing.Size(157, 25);
-            this.numQty.TabIndex = 4;
-            this.numQty.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.colProductName.Text = "상품명";
+            this.colProductName.Width = 150;
             // 
-            // lblTotal
+            // colPrice
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotal.Location = new System.Drawing.Point(684, 524);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(137, 20);
-            this.lblTotal.TabIndex = 5;
-            this.lblTotal.Text = "총 금액 : 0원";
-            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
+            this.colPrice.Text = "가격";
+            this.colPrice.Width = 100;
             // 
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.Thistle;
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnPay.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPay.Location = new System.Drawing.Point(881, 513);
+            this.btnPay.Location = new System.Drawing.Point(880, 516);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(113, 41);
-            this.btnPay.TabIndex = 6;
+            this.btnPay.TabIndex = 20;
             this.btnPay.Text = "결제하기";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // txtSearch
+            // lblTotal
             // 
-            this.txtSearch.Location = new System.Drawing.Point(547, 15);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(363, 25);
-            this.txtSearch.TabIndex = 9;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTotal.Location = new System.Drawing.Point(683, 527);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(137, 20);
+            this.lblTotal.TabIndex = 19;
+            this.lblTotal.Text = "총 금액 : 0원";
             // 
-            // btnSearch
+            // btnMinus
             // 
-            this.btnSearch.Location = new System.Drawing.Point(929, 15);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 26);
-            this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "검색";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnMinus.BackColor = System.Drawing.Color.Thistle;
+            this.btnMinus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnMinus.Location = new System.Drawing.Point(654, 478);
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.Size = new System.Drawing.Size(109, 30);
+            this.btnMinus.TabIndex = 21;
+            this.btnMinus.Text = "수량 감소";
+            this.btnMinus.UseVisualStyleBackColor = false;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
-            // label1
+            // btnPlus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(18, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 18);
-            this.label1.TabIndex = 11;
+            this.btnPlus.BackColor = System.Drawing.Color.Thistle;
+            this.btnPlus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPlus.Location = new System.Drawing.Point(539, 478);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(109, 30);
+            this.btnPlus.TabIndex = 22;
+            this.btnPlus.Text = "수량 추가";
+            this.btnPlus.UseVisualStyleBackColor = false;
+            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             // 
-            // btnDelete
+            // menuStrip1
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
-            this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDelete.Location = new System.Drawing.Point(770, 465);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 30);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "선택 취소";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.관리자모드로전환ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1044, 28);
+            this.menuStrip1.TabIndex = 23;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnClear
+            // 관리자모드로전환ToolStripMenuItem
             // 
-            this.btnClear.BackColor = System.Drawing.Color.Thistle;
-            this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(885, 465);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(109, 30);
-            this.btnClear.TabIndex = 13;
-            this.btnClear.Text = "전체 취소";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.관리자모드로전환ToolStripMenuItem.Name = "관리자모드로전환ToolStripMenuItem";
+            this.관리자모드로전환ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.관리자모드로전환ToolStripMenuItem.Text = "관리자 모드로 전환";
+            this.관리자모드로전환ToolStripMenuItem.Click += new System.EventHandler(this.관리자모드로전환ToolStripMenuItem_Click);
             // 
-            // FormSaleManage
+            // FormSelfCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1027, 557);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
+            this.ClientSize = new System.Drawing.Size(1044, 601);
+            this.Controls.Add(this.btnPlus);
+            this.Controls.Add(this.btnMinus);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.numQty);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lvCart);
-            this.Controls.Add(this.lvProduct);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "FormSaleManage";
-            this.Text = "POS";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.lvProduct);
+            this.Controls.Add(this.lvCart);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "FormSelfCheckout";
+            this.Text = "FormSelfCheckout";
+            this.Load += new System.EventHandler(this.FormSelfCheckout_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,19 +373,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lvProduct;
-        private System.Windows.Forms.ColumnHeader colProductName;
-        private System.Windows.Forms.ColumnHeader colPrice;
-        private System.Windows.Forms.ListView lvCart;
-        private System.Windows.Forms.ColumnHeader colCartName;
-        private System.Windows.Forms.ColumnHeader colCartQty;
-        private System.Windows.Forms.ColumnHeader colCartAmount;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.NumericUpDown numQty;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCategoryAll;
         private System.Windows.Forms.Button btnCategoryLunch;
         private System.Windows.Forms.Button btnCategoryEtc;
@@ -413,10 +383,20 @@
         private System.Windows.Forms.Button btnCategoryRamen;
         private System.Windows.Forms.Button btnCategorySnack;
         private System.Windows.Forms.Button btnCategoryDrink;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
-
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.ColumnHeader colCartName;
+        private System.Windows.Forms.ColumnHeader colCartQty;
+        private System.Windows.Forms.ColumnHeader colCartAmount;
+        private System.Windows.Forms.ListView lvProduct;
+        private System.Windows.Forms.ColumnHeader colProductName;
+        private System.Windows.Forms.ColumnHeader colPrice;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnMinus;
+        private System.Windows.Forms.Button btnPlus;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 관리자모드로전환ToolStripMenuItem;
     }
 }
-

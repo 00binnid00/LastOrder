@@ -67,6 +67,8 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listViewProduct.FullRowSelect = true;
+            this.listViewProduct.GridLines = true;
             this.listViewProduct.HideSelection = false;
             this.listViewProduct.Location = new System.Drawing.Point(16, 47);
             this.listViewProduct.Name = "listViewProduct";

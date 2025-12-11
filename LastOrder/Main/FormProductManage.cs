@@ -20,6 +20,7 @@ namespace Main
             "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));";
 
         private string selectedImgPath = "";
+        private int selectedPid = -1;
 
         public FormProductManage()
         {
@@ -34,7 +35,6 @@ namespace Main
         private void LoadCategoryList()
         {
             cbCategory.Items.Clear();
-
             cbCategory.Items.AddRange(new string[]
             {
                 "DRINK", "SNACK", "COLD", "BREAD", "RAMEN",
@@ -44,6 +44,7 @@ namespace Main
             cbCategory.SelectedIndex = 0;
         }
 
+
         private void LoadProductList()
         {
             lvProduct.Items.Clear();
@@ -52,9 +53,18 @@ namespace Main
             {
                 conn.Open();
 
-                string sql =
-                    "SELECT pid, pname, price, category, imgpath, eventinfo " +
-                    "FROM product ORDER BY pid";
+                // ※ 이벤트 정보 포함 JOIN
+                string sql = @"
+                    SELECT 
+                        p.pid,
+                        p.pname,
+                        p.price,
+                        p.category,
+                        p.imgpath,
+                        NVL(e.ename, '') AS eventinfo
+                    FROM product p
+                    LEFT JOIN pos_event e ON p.pid = e.pid
+                    ORDER BY p.pid";
 
                 OracleCommand cmd = new OracleCommand(sql, conn);
                 OracleDataReader dr = cmd.ExecuteReader();
@@ -66,25 +76,28 @@ namespace Main
                     item.SubItems.Add(dr["price"].ToString());
                     item.SubItems.Add(dr["category"].ToString());
                     item.SubItems.Add(dr["imgpath"].ToString());
-                    item.SubItems.Add(dr["eventinfo"].ToString());
+                    item.SubItems.Add(dr["eventinfo"].ToString());  // 추가
 
                     lvProduct.Items.Add(item);
                 }
             }
         }
-
         private void lvProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvProduct.SelectedItems.Count == 0)
+            {
+                selectedPid = -1;
                 return;
+            }
 
             ListViewItem item = lvProduct.SelectedItems[0];
+            selectedPid = int.Parse(item.SubItems[0].Text);
 
             txtName.Text = item.SubItems[1].Text;
             txtPrice.Text = item.SubItems[2].Text;
             cbCategory.Text = item.SubItems[3].Text;
+
             selectedImgPath = item.SubItems[4].Text;
-            txtEvent.Text = item.SubItems[5].Text;
 
             if (File.Exists(selectedImgPath))
                 picProduct.Image = Image.FromFile(selectedImgPath);
@@ -111,10 +124,11 @@ namespace Main
                 conn.Open();
 
                 string sql = @"
-                    INSERT INTO product (pid, pname, price, category, imgpath, eventinfo)
+                    INSERT INTO product
+                        (pid, pname, price, stock, category, imgpath, eventinfo)
                     VALUES (
-                        (SELECT NVL(MAX(pid), 1000) + 1 FROM product),
-                        :name, :price, :category, :img, :event
+                        (SELECT NVL(MAX(pid),1000)+1 FROM product),
+                        :name, :price, 0, :category, :img, NULL
                     )";
 
                 OracleCommand cmd = new OracleCommand(sql, conn);
@@ -122,25 +136,21 @@ namespace Main
                 cmd.Parameters.Add(":price", int.Parse(txtPrice.Text));
                 cmd.Parameters.Add(":category", cbCategory.Text);
                 cmd.Parameters.Add(":img", selectedImgPath);
-                cmd.Parameters.Add(":event", txtEvent.Text);
 
                 cmd.ExecuteNonQuery();
-
-                MessageBox.Show("상품이 등록되었습니다!");
             }
 
+            MessageBox.Show("상품이 추가되었습니다.");
             LoadProductList();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (lvProduct.SelectedItems.Count == 0)
+            if (selectedPid == -1)
             {
                 MessageBox.Show("수정할 상품을 선택하세요.");
                 return;
             }
-
-            int pid = int.Parse(lvProduct.SelectedItems[0].Text);
 
             using (OracleConnection conn = new OracleConnection(connectionString))
             {
@@ -151,8 +161,7 @@ namespace Main
                     SET pname = :name,
                         price = :price,
                         category = :category,
-                        imgpath = :img,
-                        eventinfo = :event
+                        imgpath = :img
                     WHERE pid = :pid";
 
                 OracleCommand cmd = new OracleCommand(sql, conn);
@@ -160,46 +169,45 @@ namespace Main
                 cmd.Parameters.Add(":price", int.Parse(txtPrice.Text));
                 cmd.Parameters.Add(":category", cbCategory.Text);
                 cmd.Parameters.Add(":img", selectedImgPath);
-                cmd.Parameters.Add(":event", txtEvent.Text);
-                cmd.Parameters.Add(":pid", pid);
+                cmd.Parameters.Add(":pid", selectedPid);
 
                 cmd.ExecuteNonQuery();
-
-                MessageBox.Show("상품 정보가 수정되었습니다!");
             }
 
+            MessageBox.Show("상품이 수정되었습니다.");
             LoadProductList();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lvProduct.SelectedItems.Count == 0)
+            if (selectedPid == -1)
             {
                 MessageBox.Show("삭제할 상품을 선택하세요.");
                 return;
             }
 
-            int pid = int.Parse(lvProduct.SelectedItems[0].Text);
-
-            DialogResult result = MessageBox.Show("정말 삭제하시겠습니까?", "삭제 확인",
-                                                  MessageBoxButtons.YesNo);
-
-            if (result != DialogResult.Yes)
+            if (MessageBox.Show("정말 삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo)
+                != DialogResult.Yes)
                 return;
 
             using (OracleConnection conn = new OracleConnection(connectionString))
             {
                 conn.Open();
 
+                // 먼저 이벤트 삭제 (FK 문제 방지)
+                string sqlEvent = "DELETE FROM pos_event WHERE pid = :pid";
+                OracleCommand cmdEvent = new OracleCommand(sqlEvent, conn);
+                cmdEvent.Parameters.Add(":pid", selectedPid);
+                cmdEvent.ExecuteNonQuery();
+
+                // 상품 삭제
                 string sql = "DELETE FROM product WHERE pid = :pid";
-
                 OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add(":pid", pid);
-
+                cmd.Parameters.Add(":pid", selectedPid);
                 cmd.ExecuteNonQuery();
             }
 
-            MessageBox.Show("상품이 삭제되었습니다!");
+            MessageBox.Show("상품이 삭제되었습니다.");
             LoadProductList();
         }
 

@@ -39,6 +39,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numDiscountValue = new System.Windows.Forms.NumericUpDown();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +47,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.numGet = new System.Windows.Forms.NumericUpDown();
             this.numBuy = new System.Windows.Forms.NumericUpDown();
-            this.numDiscountValue = new System.Windows.Forms.TextBox();
             this.rbBundle = new System.Windows.Forms.RadioButton();
             this.rbPercent = new System.Windows.Forms.RadioButton();
             this.rbAmount = new System.Windows.Forms.RadioButton();
@@ -60,10 +60,11 @@
             this.lblSelectedProduct = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscountValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBuy)).BeginInit();
             this.SuspendLayout();
@@ -148,6 +149,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numDiscountValue);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.dtEnd);
@@ -155,7 +157,6 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.numGet);
             this.groupBox1.Controls.Add(this.numBuy);
-            this.groupBox1.Controls.Add(this.numDiscountValue);
             this.groupBox1.Controls.Add(this.rbBundle);
             this.groupBox1.Controls.Add(this.rbPercent);
             this.groupBox1.Controls.Add(this.rbAmount);
@@ -175,6 +176,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "이벤트 정보 입력 및 목록";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // numDiscountValue
+            // 
+            this.numDiscountValue.Location = new System.Drawing.Point(127, 191);
+            this.numDiscountValue.Name = "numDiscountValue";
+            this.numDiscountValue.Size = new System.Drawing.Size(201, 25);
+            this.numDiscountValue.TabIndex = 20;
             // 
             // txtDescription
             // 
@@ -229,13 +237,6 @@
             this.numBuy.Name = "numBuy";
             this.numBuy.Size = new System.Drawing.Size(73, 25);
             this.numBuy.TabIndex = 13;
-            // 
-            // numDiscountValue
-            // 
-            this.numDiscountValue.Location = new System.Drawing.Point(129, 189);
-            this.numDiscountValue.Name = "numDiscountValue";
-            this.numDiscountValue.Size = new System.Drawing.Size(201, 25);
-            this.numDiscountValue.TabIndex = 12;
             // 
             // rbBundle
             // 
@@ -359,15 +360,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnUpload
+            // btnUpdate
             // 
-            this.btnUpload.Location = new System.Drawing.Point(795, 352);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(135, 49);
-            this.btnUpload.TabIndex = 6;
-            this.btnUpload.Text = "수정";
-            this.btnUpload.UseVisualStyleBackColor = true;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(795, 352);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(135, 49);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "수정";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -396,7 +397,7 @@
             this.ClientSize = new System.Drawing.Size(942, 592);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpload);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSearch);
@@ -408,6 +409,7 @@
             this.Load += new System.EventHandler(this.FormEventManage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscountValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBuy)).EndInit();
             this.ResumeLayout(false);
@@ -443,14 +445,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numGet;
         private System.Windows.Forms.NumericUpDown numBuy;
-        private System.Windows.Forms.TextBox numDiscountValue;
         private System.Windows.Forms.RadioButton rbBundle;
         private System.Windows.Forms.RadioButton rbPercent;
         private System.Windows.Forms.RadioButton rbAmount;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.NumericUpDown numDiscountValue;
     }
 }

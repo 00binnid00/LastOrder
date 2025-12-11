@@ -17,3 +17,6 @@ C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormMain.resources
 C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormSalesStats.resources
 C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormProductManage.resources
 C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormShipmentList.resources
+C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormEventManage.resources
+C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormSelfCheckout.resources
+C:\Users\김예인\LastOrder\LastOrder\Main\obj\Debug\Main.FormAdminLogin.resources
