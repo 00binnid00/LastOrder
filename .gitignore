@@ -1,4 +1,10 @@
+# Build folders
 bin/
 obj/
+
+# Build outputs
 *.exe
+*.dll
 *.pdb
+*.cache
+*.config
