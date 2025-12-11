@@ -38,20 +38,20 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblRefund = new System.Windows.Forms.Label();
             this.lblNet = new System.Windows.Forms.Label();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(8, 19);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 23);
+            this.label1.Size = new System.Drawing.Size(60, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "출고";
             // 
@@ -123,6 +123,11 @@
             this.columnHeader7.Text = "결제 방식";
             this.columnHeader7.Width = 80;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "환불 여부";
+            this.columnHeader8.Width = 80;
+            // 
             // cbFilter
             // 
             this.cbFilter.FormattingEnabled = true;
@@ -162,15 +167,11 @@
             this.lblNet.TabIndex = 9;
             this.lblNet.Text = "순매출 : 0원";
             // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "환불 여부";
-            this.columnHeader8.Width = 80;
-            // 
             // FormShipmentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(937, 477);
             this.Controls.Add(this.lblNet);
             this.Controls.Add(this.lblRefund);

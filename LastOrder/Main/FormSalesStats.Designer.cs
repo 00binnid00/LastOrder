@@ -41,11 +41,11 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelSummary = new System.Windows.Forms.Panel();
-            this.lblTodaySales = new System.Windows.Forms.Label();
-            this.lblTodayCnt = new System.Windows.Forms.Label();
-            this.lblMonthSales = new System.Windows.Forms.Label();
-            this.lblMonthCnt = new System.Windows.Forms.Label();
             this.lblTotalSales = new System.Windows.Forms.Label();
+            this.lblMonthCnt = new System.Windows.Forms.Label();
+            this.lblMonthSales = new System.Windows.Forms.Label();
+            this.lblTodayCnt = new System.Windows.Forms.Label();
+            this.lblTodaySales = new System.Windows.Forms.Label();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -78,10 +78,50 @@
             this.panelSummary.Controls.Add(this.lblMonthSales);
             this.panelSummary.Controls.Add(this.lblTodayCnt);
             this.panelSummary.Controls.Add(this.lblTodaySales);
-            this.panelSummary.Location = new System.Drawing.Point(12, 12);
+            this.panelSummary.Location = new System.Drawing.Point(119, 41);
             this.panelSummary.Name = "panelSummary";
             this.panelSummary.Size = new System.Drawing.Size(1115, 131);
             this.panelSummary.TabIndex = 0;
+            // 
+            // lblTotalSales
+            // 
+            this.lblTotalSales.AutoSize = true;
+            this.lblTotalSales.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTotalSales.Location = new System.Drawing.Point(16, 101);
+            this.lblTotalSales.Name = "lblTotalSales";
+            this.lblTotalSales.Size = new System.Drawing.Size(129, 20);
+            this.lblTotalSales.TabIndex = 4;
+            this.lblTotalSales.Text = "총 매출: 0원";
+            // 
+            // lblMonthCnt
+            // 
+            this.lblMonthCnt.AutoSize = true;
+            this.lblMonthCnt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblMonthCnt.Location = new System.Drawing.Point(410, 62);
+            this.lblMonthCnt.Name = "lblMonthCnt";
+            this.lblMonthCnt.Size = new System.Drawing.Size(213, 20);
+            this.lblMonthCnt.TabIndex = 3;
+            this.lblMonthCnt.Text = "이번달 판매건수: 0건";
+            // 
+            // lblMonthSales
+            // 
+            this.lblMonthSales.AutoSize = true;
+            this.lblMonthSales.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblMonthSales.Location = new System.Drawing.Point(16, 62);
+            this.lblMonthSales.Name = "lblMonthSales";
+            this.lblMonthSales.Size = new System.Drawing.Size(171, 20);
+            this.lblMonthSales.TabIndex = 2;
+            this.lblMonthSales.Text = "이번달 매출: 0원";
+            // 
+            // lblTodayCnt
+            // 
+            this.lblTodayCnt.AutoSize = true;
+            this.lblTodayCnt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTodayCnt.Location = new System.Drawing.Point(410, 18);
+            this.lblTodayCnt.Name = "lblTodayCnt";
+            this.lblTodayCnt.Size = new System.Drawing.Size(192, 20);
+            this.lblTodayCnt.TabIndex = 1;
+            this.lblTodayCnt.Text = "오늘 판매건수: 0건";
             // 
             // lblTodaySales
             // 
@@ -94,75 +134,36 @@
             this.lblTodaySales.Text = "오늘 매출: 0원";
             this.lblTodaySales.Click += new System.EventHandler(this.lblTodaySales_Click);
             // 
-            // lblTodayCnt
-            // 
-            this.lblTodayCnt.AutoSize = true;
-            this.lblTodayCnt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTodayCnt.Location = new System.Drawing.Point(410, 18);
-            this.lblTodayCnt.Name = "lblTodayCnt";
-            this.lblTodayCnt.Size = new System.Drawing.Size(192, 20);
-            this.lblTodayCnt.TabIndex = 1;
-            this.lblTodayCnt.Text = "오늘 판매건수: 0건";
-            // 
-            // lblMonthSales
-            // 
-            this.lblMonthSales.AutoSize = true;
-            this.lblMonthSales.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblMonthSales.Location = new System.Drawing.Point(16, 62);
-            this.lblMonthSales.Name = "lblMonthSales";
-            this.lblMonthSales.Size = new System.Drawing.Size(171, 20);
-            this.lblMonthSales.TabIndex = 2;
-            this.lblMonthSales.Text = "이번달 매출: 0원";
-            // 
-            // lblMonthCnt
-            // 
-            this.lblMonthCnt.AutoSize = true;
-            this.lblMonthCnt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblMonthCnt.Location = new System.Drawing.Point(410, 62);
-            this.lblMonthCnt.Name = "lblMonthCnt";
-            this.lblMonthCnt.Size = new System.Drawing.Size(213, 20);
-            this.lblMonthCnt.TabIndex = 3;
-            this.lblMonthCnt.Text = "이번달 판매건수: 0건";
-            // 
-            // lblTotalSales
-            // 
-            this.lblTotalSales.AutoSize = true;
-            this.lblTotalSales.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotalSales.Location = new System.Drawing.Point(16, 101);
-            this.lblTotalSales.Name = "lblTotalSales";
-            this.lblTotalSales.Size = new System.Drawing.Size(129, 20);
-            this.lblTotalSales.TabIndex = 4;
-            this.lblTotalSales.Text = "총 매출: 0원";
-            // 
             // dtStart
             // 
-            this.dtStart.Location = new System.Drawing.Point(12, 163);
+            this.dtStart.Location = new System.Drawing.Point(119, 192);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(221, 25);
             this.dtStart.TabIndex = 1;
             // 
             // dtEnd
             // 
-            this.dtEnd.Location = new System.Drawing.Point(272, 163);
+            this.dtEnd.Location = new System.Drawing.Point(379, 192);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(221, 25);
             this.dtEnd.TabIndex = 2;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(514, 163);
+            this.btnSearch.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnSearch.Location = new System.Drawing.Point(621, 188);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(82, 33);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblPeriodResult
             // 
             this.lblPeriodResult.AutoSize = true;
             this.lblPeriodResult.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPeriodResult.Location = new System.Drawing.Point(15, 201);
+            this.lblPeriodResult.Location = new System.Drawing.Point(122, 230);
             this.lblPeriodResult.Name = "lblPeriodResult";
             this.lblPeriodResult.Size = new System.Drawing.Size(250, 20);
             this.lblPeriodResult.TabIndex = 4;
@@ -178,7 +179,7 @@
             this.lvStats.FullRowSelect = true;
             this.lvStats.GridLines = true;
             this.lvStats.HideSelection = false;
-            this.lvStats.Location = new System.Drawing.Point(12, 238);
+            this.lvStats.Location = new System.Drawing.Point(119, 267);
             this.lvStats.MultiSelect = false;
             this.lvStats.Name = "lvStats";
             this.lvStats.Size = new System.Drawing.Size(445, 200);
@@ -212,7 +213,7 @@
             this.chartDaily.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDaily.Legends.Add(legend1);
-            this.chartDaily.Location = new System.Drawing.Point(700, 209);
+            this.chartDaily.Location = new System.Drawing.Point(807, 238);
             this.chartDaily.Name = "chartDaily";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -225,7 +226,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 168);
+            this.label1.Location = new System.Drawing.Point(351, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 15);
             this.label1.TabIndex = 7;
@@ -237,7 +238,7 @@
             this.chartCategory.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartCategory.Legends.Add(legend2);
-            this.chartCategory.Location = new System.Drawing.Point(890, 520);
+            this.chartCategory.Location = new System.Drawing.Point(997, 549);
             this.chartCategory.Name = "chartCategory";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
@@ -253,7 +254,7 @@
             this.chartMonthly.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chartMonthly.Legends.Add(legend3);
-            this.chartMonthly.Location = new System.Drawing.Point(12, 520);
+            this.chartMonthly.Location = new System.Drawing.Point(119, 549);
             this.chartMonthly.Name = "chartMonthly";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
@@ -267,7 +268,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(696, 168);
+            this.label2.Location = new System.Drawing.Point(803, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(172, 20);
             this.label2.TabIndex = 10;
@@ -277,7 +278,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(15, 483);
+            this.label3.Location = new System.Drawing.Point(122, 512);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 20);
             this.label3.TabIndex = 11;
@@ -287,7 +288,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(889, 483);
+            this.label4.Location = new System.Drawing.Point(996, 512);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(214, 20);
             this.label4.TabIndex = 12;
@@ -297,7 +298,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(450, 483);
+            this.label5.Location = new System.Drawing.Point(594, 512);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 20);
             this.label5.TabIndex = 14;
@@ -309,7 +310,7 @@
             this.chartTop5.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chartTop5.Legends.Add(legend4);
-            this.chartTop5.Location = new System.Drawing.Point(454, 520);
+            this.chartTop5.Location = new System.Drawing.Point(598, 549);
             this.chartTop5.Name = "chartTop5";
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
@@ -323,7 +324,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 783);
+            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.ClientSize = new System.Drawing.Size(1469, 805);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.chartTop5);
             this.Controls.Add(this.label4);
