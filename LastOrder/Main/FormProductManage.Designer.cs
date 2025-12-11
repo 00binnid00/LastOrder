@@ -58,10 +58,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 23);
+            this.label1.Size = new System.Drawing.Size(168, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "상품 정보 관리";
             // 
@@ -211,58 +211,69 @@
             // 
             // btnSelectImage
             // 
+            this.btnSelectImage.BackColor = System.Drawing.Color.Thistle;
+            this.btnSelectImage.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSelectImage.Location = new System.Drawing.Point(19, 563);
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(138, 38);
             this.btnSelectImage.TabIndex = 4;
             this.btnSelectImage.Text = "사진 선택";
-            this.btnSelectImage.UseVisualStyleBackColor = true;
+            this.btnSelectImage.UseVisualStyleBackColor = false;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Thistle;
+            this.btnAdd.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnAdd.Location = new System.Drawing.Point(233, 563);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(138, 38);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "추가";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Thistle;
+            this.btnUpdate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnUpdate.Location = new System.Drawing.Point(447, 563);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(138, 38);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "수정";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.Location = new System.Drawing.Point(667, 563);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(138, 38);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRefresh
             // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Thistle;
+            this.btnRefresh.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRefresh.Location = new System.Drawing.Point(868, 563);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(138, 38);
             this.btnRefresh.TabIndex = 8;
             this.btnRefresh.Text = "새로고침";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FormProductManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1018, 613);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
