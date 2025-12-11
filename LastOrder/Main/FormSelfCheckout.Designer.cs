@@ -70,7 +70,7 @@
             this.groupBox1.Controls.Add(this.btnCategoryRamen);
             this.groupBox1.Controls.Add(this.btnCategorySnack);
             this.groupBox1.Controls.Add(this.btnCategoryDrink);
-            this.groupBox1.Location = new System.Drawing.Point(12, 59);
+            this.groupBox1.Location = new System.Drawing.Point(12, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(151, 478);
             this.groupBox1.TabIndex = 1;
@@ -201,7 +201,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.Thistle;
             this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(884, 478);
+            this.btnClear.Location = new System.Drawing.Point(884, 488);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(109, 30);
             this.btnClear.TabIndex = 18;
@@ -213,7 +213,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Thistle;
             this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDelete.Location = new System.Drawing.Point(769, 478);
+            this.btnDelete.Location = new System.Drawing.Point(769, 488);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(109, 30);
             this.btnDelete.TabIndex = 17;
@@ -283,7 +283,7 @@
             this.btnPay.BackColor = System.Drawing.Color.Thistle;
             this.btnPay.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnPay.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPay.Location = new System.Drawing.Point(880, 516);
+            this.btnPay.Location = new System.Drawing.Point(880, 526);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(113, 41);
             this.btnPay.TabIndex = 20;
@@ -295,7 +295,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotal.Location = new System.Drawing.Point(683, 527);
+            this.lblTotal.Location = new System.Drawing.Point(683, 537);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(137, 20);
             this.lblTotal.TabIndex = 19;
@@ -305,7 +305,7 @@
             // 
             this.btnMinus.BackColor = System.Drawing.Color.Thistle;
             this.btnMinus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnMinus.Location = new System.Drawing.Point(654, 478);
+            this.btnMinus.Location = new System.Drawing.Point(654, 488);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(109, 30);
             this.btnMinus.TabIndex = 21;
@@ -317,7 +317,7 @@
             // 
             this.btnPlus.BackColor = System.Drawing.Color.Thistle;
             this.btnPlus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPlus.Location = new System.Drawing.Point(539, 478);
+            this.btnPlus.Location = new System.Drawing.Point(539, 488);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(109, 30);
             this.btnPlus.TabIndex = 22;
@@ -347,6 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1044, 601);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnMinus);
