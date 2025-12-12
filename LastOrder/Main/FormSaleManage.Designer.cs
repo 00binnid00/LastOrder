@@ -30,31 +30,31 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCategoryDrink = new System.Windows.Forms.Button();
-            this.btnCategorySnack = new System.Windows.Forms.Button();
-            this.btnCategoryRamen = new System.Windows.Forms.Button();
-            this.btnCategoryBread = new System.Windows.Forms.Button();
-            this.btnCategoryCold = new System.Windows.Forms.Button();
-            this.btnCategoryFrozen = new System.Windows.Forms.Button();
-            this.btnCategoryIcecream = new System.Windows.Forms.Button();
-            this.btnCategoryEtc = new System.Windows.Forms.Button();
-            this.btnCategoryLunch = new System.Windows.Forms.Button();
             this.btnCategoryAll = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnPay = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.lvCart = new System.Windows.Forms.ListView();
+            this.btnCategoryLunch = new System.Windows.Forms.Button();
+            this.btnCategoryEtc = new System.Windows.Forms.Button();
+            this.btnCategoryIcecream = new System.Windows.Forms.Button();
+            this.btnCategoryFrozen = new System.Windows.Forms.Button();
+            this.btnCategoryCold = new System.Windows.Forms.Button();
+            this.btnCategoryBread = new System.Windows.Forms.Button();
+            this.btnCategoryRamen = new System.Windows.Forms.Button();
+            this.btnCategorySnack = new System.Windows.Forms.Button();
+            this.btnCategoryDrink = new System.Windows.Forms.Button();
             this.colCartName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCartQty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCartAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.numQty = new System.Windows.Forms.NumericUpDown();
-            this.lvProduct = new System.Windows.Forms.ListView();
+            this.lvCart = new System.Windows.Forms.ListView();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.colProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.lvProduct = new System.Windows.Forms.ListView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.numQty = new System.Windows.Forms.NumericUpDown();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.SuspendLayout();
@@ -87,101 +87,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "카테고리";
             // 
-            // btnCategoryDrink
+            // btnCategoryAll
             // 
-            this.btnCategoryDrink.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryDrink.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryDrink.Location = new System.Drawing.Point(18, 24);
-            this.btnCategoryDrink.Name = "btnCategoryDrink";
-            this.btnCategoryDrink.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryDrink.TabIndex = 5;
-            this.btnCategoryDrink.Text = "음료";
-            this.btnCategoryDrink.UseVisualStyleBackColor = false;
-            this.btnCategoryDrink.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnCategorySnack
-            // 
-            this.btnCategorySnack.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategorySnack.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategorySnack.Location = new System.Drawing.Point(18, 69);
-            this.btnCategorySnack.Name = "btnCategorySnack";
-            this.btnCategorySnack.Size = new System.Drawing.Size(107, 39);
-            this.btnCategorySnack.TabIndex = 6;
-            this.btnCategorySnack.Text = "과자";
-            this.btnCategorySnack.UseVisualStyleBackColor = false;
-            this.btnCategorySnack.Click += new System.EventHandler(this.btnCategorySnack_Click);
-            // 
-            // btnCategoryRamen
-            // 
-            this.btnCategoryRamen.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryRamen.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryRamen.Location = new System.Drawing.Point(18, 159);
-            this.btnCategoryRamen.Name = "btnCategoryRamen";
-            this.btnCategoryRamen.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryRamen.TabIndex = 7;
-            this.btnCategoryRamen.Text = "라면·면";
-            this.btnCategoryRamen.UseVisualStyleBackColor = false;
-            this.btnCategoryRamen.Click += new System.EventHandler(this.btnCategoryRamen_Click);
-            // 
-            // btnCategoryBread
-            // 
-            this.btnCategoryBread.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryBread.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryBread.Location = new System.Drawing.Point(18, 114);
-            this.btnCategoryBread.Name = "btnCategoryBread";
-            this.btnCategoryBread.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryBread.TabIndex = 8;
-            this.btnCategoryBread.Text = "빵";
-            this.btnCategoryBread.UseVisualStyleBackColor = false;
-            this.btnCategoryBread.Click += new System.EventHandler(this.btnCategoryBread_Click);
-            // 
-            // btnCategoryCold
-            // 
-            this.btnCategoryCold.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryCold.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryCold.Location = new System.Drawing.Point(18, 249);
-            this.btnCategoryCold.Name = "btnCategoryCold";
-            this.btnCategoryCold.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryCold.TabIndex = 9;
-            this.btnCategoryCold.Text = "냉장";
-            this.btnCategoryCold.UseVisualStyleBackColor = false;
-            this.btnCategoryCold.Click += new System.EventHandler(this.btnCategoryCold_Click);
-            // 
-            // btnCategoryFrozen
-            // 
-            this.btnCategoryFrozen.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryFrozen.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryFrozen.Location = new System.Drawing.Point(18, 294);
-            this.btnCategoryFrozen.Name = "btnCategoryFrozen";
-            this.btnCategoryFrozen.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryFrozen.TabIndex = 10;
-            this.btnCategoryFrozen.Text = "냉동";
-            this.btnCategoryFrozen.UseVisualStyleBackColor = false;
-            this.btnCategoryFrozen.Click += new System.EventHandler(this.btnCategoryFrozen_Click);
-            // 
-            // btnCategoryIcecream
-            // 
-            this.btnCategoryIcecream.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryIcecream.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryIcecream.Location = new System.Drawing.Point(18, 339);
-            this.btnCategoryIcecream.Name = "btnCategoryIcecream";
-            this.btnCategoryIcecream.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryIcecream.TabIndex = 11;
-            this.btnCategoryIcecream.Text = "아이스크림";
-            this.btnCategoryIcecream.UseVisualStyleBackColor = false;
-            this.btnCategoryIcecream.Click += new System.EventHandler(this.btnCategoryIcecream_Click);
-            // 
-            // btnCategoryEtc
-            // 
-            this.btnCategoryEtc.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryEtc.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryEtc.Location = new System.Drawing.Point(18, 384);
-            this.btnCategoryEtc.Name = "btnCategoryEtc";
-            this.btnCategoryEtc.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryEtc.TabIndex = 12;
-            this.btnCategoryEtc.Text = "기타";
-            this.btnCategoryEtc.UseVisualStyleBackColor = false;
-            this.btnCategoryEtc.Click += new System.EventHandler(this.btnCategoryEtc_Click);
+            this.btnCategoryAll.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryAll.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryAll.Location = new System.Drawing.Point(18, 429);
+            this.btnCategoryAll.Name = "btnCategoryAll";
+            this.btnCategoryAll.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryAll.TabIndex = 14;
+            this.btnCategoryAll.Text = "전체";
+            this.btnCategoryAll.UseVisualStyleBackColor = false;
+            this.btnCategoryAll.Click += new System.EventHandler(this.button11_Click);
             // 
             // btnCategoryLunch
             // 
@@ -195,65 +111,116 @@
             this.btnCategoryLunch.UseVisualStyleBackColor = false;
             this.btnCategoryLunch.Click += new System.EventHandler(this.btnCategoryLunch_Click);
             // 
-            // btnCategoryAll
+            // btnCategoryEtc
             // 
-            this.btnCategoryAll.BackColor = System.Drawing.Color.Thistle;
-            this.btnCategoryAll.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCategoryAll.Location = new System.Drawing.Point(18, 429);
-            this.btnCategoryAll.Name = "btnCategoryAll";
-            this.btnCategoryAll.Size = new System.Drawing.Size(107, 39);
-            this.btnCategoryAll.TabIndex = 14;
-            this.btnCategoryAll.Text = "전체";
-            this.btnCategoryAll.UseVisualStyleBackColor = false;
-            this.btnCategoryAll.Click += new System.EventHandler(this.button11_Click);
+            this.btnCategoryEtc.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryEtc.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryEtc.Location = new System.Drawing.Point(18, 384);
+            this.btnCategoryEtc.Name = "btnCategoryEtc";
+            this.btnCategoryEtc.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryEtc.TabIndex = 12;
+            this.btnCategoryEtc.Text = "기타";
+            this.btnCategoryEtc.UseVisualStyleBackColor = false;
+            this.btnCategoryEtc.Click += new System.EventHandler(this.btnCategoryEtc_Click);
             // 
-            // btnDelete
+            // btnCategoryIcecream
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
-            this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDelete.Location = new System.Drawing.Point(770, 465);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 30);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "선택 취소";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnCategoryIcecream.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryIcecream.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryIcecream.Location = new System.Drawing.Point(18, 339);
+            this.btnCategoryIcecream.Name = "btnCategoryIcecream";
+            this.btnCategoryIcecream.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryIcecream.TabIndex = 11;
+            this.btnCategoryIcecream.Text = "아이스크림";
+            this.btnCategoryIcecream.UseVisualStyleBackColor = false;
+            this.btnCategoryIcecream.Click += new System.EventHandler(this.btnCategoryIcecream_Click);
             // 
-            // btnPay
+            // btnCategoryFrozen
             // 
-            this.btnPay.BackColor = System.Drawing.Color.Thistle;
-            this.btnPay.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnPay.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPay.Location = new System.Drawing.Point(881, 513);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(113, 41);
-            this.btnPay.TabIndex = 6;
-            this.btnPay.Text = "결제하기";
-            this.btnPay.UseVisualStyleBackColor = false;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            this.btnCategoryFrozen.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryFrozen.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryFrozen.Location = new System.Drawing.Point(18, 294);
+            this.btnCategoryFrozen.Name = "btnCategoryFrozen";
+            this.btnCategoryFrozen.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryFrozen.TabIndex = 10;
+            this.btnCategoryFrozen.Text = "냉동";
+            this.btnCategoryFrozen.UseVisualStyleBackColor = false;
+            this.btnCategoryFrozen.Click += new System.EventHandler(this.btnCategoryFrozen_Click);
             // 
-            // btnClear
+            // btnCategoryCold
             // 
-            this.btnClear.BackColor = System.Drawing.Color.Thistle;
-            this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(885, 465);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(109, 30);
-            this.btnClear.TabIndex = 13;
-            this.btnClear.Text = "전체 취소";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnCategoryCold.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryCold.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryCold.Location = new System.Drawing.Point(18, 249);
+            this.btnCategoryCold.Name = "btnCategoryCold";
+            this.btnCategoryCold.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryCold.TabIndex = 9;
+            this.btnCategoryCold.Text = "냉장";
+            this.btnCategoryCold.UseVisualStyleBackColor = false;
+            this.btnCategoryCold.Click += new System.EventHandler(this.btnCategoryCold_Click);
             // 
-            // lblTotal
+            // btnCategoryBread
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotal.Location = new System.Drawing.Point(684, 524);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(137, 20);
-            this.lblTotal.TabIndex = 5;
-            this.lblTotal.Text = "총 금액 : 0원";
-            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
+            this.btnCategoryBread.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryBread.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryBread.Location = new System.Drawing.Point(18, 114);
+            this.btnCategoryBread.Name = "btnCategoryBread";
+            this.btnCategoryBread.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryBread.TabIndex = 8;
+            this.btnCategoryBread.Text = "빵";
+            this.btnCategoryBread.UseVisualStyleBackColor = false;
+            this.btnCategoryBread.Click += new System.EventHandler(this.btnCategoryBread_Click);
+            // 
+            // btnCategoryRamen
+            // 
+            this.btnCategoryRamen.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryRamen.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryRamen.Location = new System.Drawing.Point(18, 159);
+            this.btnCategoryRamen.Name = "btnCategoryRamen";
+            this.btnCategoryRamen.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryRamen.TabIndex = 7;
+            this.btnCategoryRamen.Text = "라면·면";
+            this.btnCategoryRamen.UseVisualStyleBackColor = false;
+            this.btnCategoryRamen.Click += new System.EventHandler(this.btnCategoryRamen_Click);
+            // 
+            // btnCategorySnack
+            // 
+            this.btnCategorySnack.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategorySnack.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategorySnack.Location = new System.Drawing.Point(18, 69);
+            this.btnCategorySnack.Name = "btnCategorySnack";
+            this.btnCategorySnack.Size = new System.Drawing.Size(107, 39);
+            this.btnCategorySnack.TabIndex = 6;
+            this.btnCategorySnack.Text = "과자";
+            this.btnCategorySnack.UseVisualStyleBackColor = false;
+            this.btnCategorySnack.Click += new System.EventHandler(this.btnCategorySnack_Click);
+            // 
+            // btnCategoryDrink
+            // 
+            this.btnCategoryDrink.BackColor = System.Drawing.Color.Thistle;
+            this.btnCategoryDrink.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategoryDrink.Location = new System.Drawing.Point(18, 24);
+            this.btnCategoryDrink.Name = "btnCategoryDrink";
+            this.btnCategoryDrink.Size = new System.Drawing.Size(107, 39);
+            this.btnCategoryDrink.TabIndex = 5;
+            this.btnCategoryDrink.Text = "음료";
+            this.btnCategoryDrink.UseVisualStyleBackColor = false;
+            this.btnCategoryDrink.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // colCartName
+            // 
+            this.colCartName.Text = "상품명";
+            this.colCartName.Width = 150;
+            // 
+            // colCartQty
+            // 
+            this.colCartQty.Text = "수량";
+            this.colCartQty.Width = 100;
+            // 
+            // colCartAmount
+            // 
+            this.colCartAmount.Text = "금액";
+            this.colCartAmount.Width = 100;
             // 
             // lvCart
             // 
@@ -271,20 +238,80 @@
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
             // 
-            // colCartName
+            // lblTotal
             // 
-            this.colCartName.Text = "상품명";
-            this.colCartName.Width = 150;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTotal.Location = new System.Drawing.Point(684, 524);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(137, 20);
+            this.lblTotal.TabIndex = 5;
+            this.lblTotal.Text = "총 금액 : 0원";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
-            // colCartQty
+            // btnPay
             // 
-            this.colCartQty.Text = "수량";
-            this.colCartQty.Width = 100;
+            this.btnPay.BackColor = System.Drawing.Color.Thistle;
+            this.btnPay.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPay.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPay.Location = new System.Drawing.Point(881, 513);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(113, 41);
+            this.btnPay.TabIndex = 6;
+            this.btnPay.Text = "결제하기";
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // colCartAmount
+            // btnDelete
             // 
-            this.colCartAmount.Text = "금액";
-            this.colCartAmount.Width = 100;
+            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.Location = new System.Drawing.Point(770, 465);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(109, 30);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "선택 취소";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Thistle;
+            this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClear.Location = new System.Drawing.Point(885, 465);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(109, 30);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "전체 취소";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // colProductName
+            // 
+            this.colProductName.Text = "상품명";
+            this.colProductName.Width = 150;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Text = "가격";
+            this.colPrice.Width = 100;
+            // 
+            // lvProduct
+            // 
+            this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colProductName,
+            this.colPrice});
+            this.lvProduct.FullRowSelect = true;
+            this.lvProduct.HideSelection = false;
+            this.lvProduct.Location = new System.Drawing.Point(183, 58);
+            this.lvProduct.MultiSelect = false;
+            this.lvProduct.Name = "lvProduct";
+            this.lvProduct.Size = new System.Drawing.Size(811, 152);
+            this.lvProduct.TabIndex = 1;
+            this.lvProduct.UseCompatibleStateImageBehavior = false;
+            this.lvProduct.View = System.Windows.Forms.View.Details;
+            this.lvProduct.SelectedIndexChanged += new System.EventHandler(this.lvProduct_SelectedIndexChanged);
+            this.lvProduct.Click += new System.EventHandler(this.lvProduct_Click);
             // 
             // btnAdd
             // 
@@ -315,49 +342,22 @@
             0,
             0});
             // 
-            // lvProduct
+            // txtSearch
             // 
-            this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colProductName,
-            this.colPrice});
-            this.lvProduct.FullRowSelect = true;
-            this.lvProduct.HideSelection = false;
-            this.lvProduct.Location = new System.Drawing.Point(183, 58);
-            this.lvProduct.MultiSelect = false;
-            this.lvProduct.Name = "lvProduct";
-            this.lvProduct.Size = new System.Drawing.Size(811, 152);
-            this.lvProduct.TabIndex = 1;
-            this.lvProduct.UseCompatibleStateImageBehavior = false;
-            this.lvProduct.View = System.Windows.Forms.View.Details;
-            this.lvProduct.SelectedIndexChanged += new System.EventHandler(this.lvProduct_SelectedIndexChanged);
-            this.lvProduct.Click += new System.EventHandler(this.lvProduct_Click);
-            // 
-            // colProductName
-            // 
-            this.colProductName.Text = "상품명";
-            this.colProductName.Width = 150;
-            // 
-            // colPrice
-            // 
-            this.colPrice.Text = "가격";
-            this.colPrice.Width = 100;
+            this.txtSearch.Location = new System.Drawing.Point(673, 15);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(237, 25);
+            this.txtSearch.TabIndex = 9;
             // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Thistle;
-            this.btnSearch.Location = new System.Drawing.Point(929, 15);
+            this.btnSearch.Location = new System.Drawing.Point(918, 14);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 26);
+            this.btnSearch.Size = new System.Drawing.Size(75, 29);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(547, 15);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(363, 25);
-            this.txtSearch.TabIndex = 9;
             // 
             // FormSaleManage
             // 
@@ -401,21 +401,21 @@
         private System.Windows.Forms.Button btnCategoryRamen;
         private System.Windows.Forms.Button btnCategorySnack;
         private System.Windows.Forms.Button btnCategoryDrink;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.ListView lvCart;
         private System.Windows.Forms.ColumnHeader colCartName;
         private System.Windows.Forms.ColumnHeader colCartQty;
         private System.Windows.Forms.ColumnHeader colCartAmount;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.NumericUpDown numQty;
-        private System.Windows.Forms.ListView lvProduct;
+        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ColumnHeader colProductName;
         private System.Windows.Forms.ColumnHeader colPrice;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ListView lvProduct;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.NumericUpDown numQty;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

@@ -54,6 +54,8 @@
             this.btnPlus = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.관리자모드로전환ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -201,7 +203,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.Thistle;
             this.btnClear.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClear.Location = new System.Drawing.Point(884, 488);
+            this.btnClear.Location = new System.Drawing.Point(884, 485);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(109, 30);
             this.btnClear.TabIndex = 18;
@@ -213,7 +215,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Thistle;
             this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDelete.Location = new System.Drawing.Point(769, 488);
+            this.btnDelete.Location = new System.Drawing.Point(769, 485);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(109, 30);
             this.btnDelete.TabIndex = 17;
@@ -259,7 +261,7 @@
             this.colPrice});
             this.lvProduct.FullRowSelect = true;
             this.lvProduct.HideSelection = false;
-            this.lvProduct.Location = new System.Drawing.Point(182, 71);
+            this.lvProduct.Location = new System.Drawing.Point(182, 75);
             this.lvProduct.MultiSelect = false;
             this.lvProduct.Name = "lvProduct";
             this.lvProduct.Size = new System.Drawing.Size(811, 152);
@@ -295,17 +297,18 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotal.Location = new System.Drawing.Point(683, 537);
+            this.lblTotal.Location = new System.Drawing.Point(584, 536);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(137, 20);
             this.lblTotal.TabIndex = 19;
             this.lblTotal.Text = "총 금액 : 0원";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // btnMinus
             // 
             this.btnMinus.BackColor = System.Drawing.Color.Thistle;
             this.btnMinus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnMinus.Location = new System.Drawing.Point(654, 488);
+            this.btnMinus.Location = new System.Drawing.Point(880, 239);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(109, 30);
             this.btnMinus.TabIndex = 21;
@@ -317,7 +320,7 @@
             // 
             this.btnPlus.BackColor = System.Drawing.Color.Thistle;
             this.btnPlus.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPlus.Location = new System.Drawing.Point(539, 488);
+            this.btnPlus.Location = new System.Drawing.Point(765, 239);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(109, 30);
             this.btnPlus.TabIndex = 22;
@@ -343,12 +346,31 @@
             this.관리자모드로전환ToolStripMenuItem.Text = "관리자 모드로 전환";
             this.관리자모드로전환ToolStripMenuItem.Click += new System.EventHandler(this.관리자모드로전환ToolStripMenuItem_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Thistle;
+            this.btnSearch.Location = new System.Drawing.Point(907, 31);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(86, 31);
+            this.btnSearch.TabIndex = 25;
+            this.btnSearch.Text = "상품 검색";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(661, 34);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(240, 25);
+            this.txtSearch.TabIndex = 24;
+            // 
             // FormSelfCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1044, 601);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnMinus);
             this.Controls.Add(this.btnPay);
@@ -399,5 +421,7 @@
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 관리자모드로전환ToolStripMenuItem;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
