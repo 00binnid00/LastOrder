@@ -99,5 +99,10 @@ namespace Main
             self.Show();
             this.Hide();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
     }
 }
