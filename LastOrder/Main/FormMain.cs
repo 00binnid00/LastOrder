@@ -31,7 +31,8 @@ namespace Main
 
             FormSaleManage pos = new FormSaleManage();
             pos.MdiParent = this;
-            pos.WindowState = FormWindowState.Maximized;
+            pos.FormBorderStyle = FormBorderStyle.None;
+            pos.Dock = DockStyle.Fill;
             pos.Show();
         }
         private void OpenChildForm(Form child)
