@@ -43,6 +43,12 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblRefund = new System.Windows.Forms.Label();
             this.lblNet = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+=======
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.SuspendLayout();
             // 
             // label1
@@ -63,9 +69,9 @@
             this.columnHeader6});
             this.listViewDetail.FullRowSelect = true;
             this.listViewDetail.HideSelection = false;
-            this.listViewDetail.Location = new System.Drawing.Point(478, 55);
+            this.listViewDetail.Location = new System.Drawing.Point(520, 54);
             this.listViewDetail.Name = "listViewDetail";
-            this.listViewDetail.Size = new System.Drawing.Size(439, 314);
+            this.listViewDetail.Size = new System.Drawing.Size(439, 386);
             this.listViewDetail.TabIndex = 4;
             this.listViewDetail.UseCompatibleStateImageBehavior = false;
             this.listViewDetail.View = System.Windows.Forms.View.Details;
@@ -95,7 +101,7 @@
             this.columnHeader8});
             this.listViewSales.FullRowSelect = true;
             this.listViewSales.HideSelection = false;
-            this.listViewSales.Location = new System.Drawing.Point(12, 84);
+            this.listViewSales.Location = new System.Drawing.Point(54, 155);
             this.listViewSales.Name = "listViewSales";
             this.listViewSales.Size = new System.Drawing.Size(439, 285);
             this.listViewSales.TabIndex = 3;
@@ -131,7 +137,7 @@
             // cbFilter
             // 
             this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Location = new System.Drawing.Point(12, 55);
+            this.cbFilter.Location = new System.Drawing.Point(54, 121);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(439, 23);
             this.cbFilter.TabIndex = 6;
@@ -141,7 +147,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotal.Location = new System.Drawing.Point(621, 383);
+            this.lblTotal.Location = new System.Drawing.Point(779, 456);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(137, 20);
             this.lblTotal.TabIndex = 7;
@@ -151,7 +157,7 @@
             // 
             this.lblRefund.AutoSize = true;
             this.lblRefund.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblRefund.Location = new System.Drawing.Point(622, 414);
+            this.lblRefund.Location = new System.Drawing.Point(780, 487);
             this.lblRefund.Name = "lblRefund";
             this.lblRefund.Size = new System.Drawing.Size(179, 20);
             this.lblRefund.TabIndex = 8;
@@ -161,18 +167,61 @@
             // 
             this.lblNet.AutoSize = true;
             this.lblNet.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblNet.Location = new System.Drawing.Point(621, 445);
+            this.lblNet.Location = new System.Drawing.Point(779, 518);
             this.lblNet.Name = "lblNet";
             this.lblNet.Size = new System.Drawing.Size(129, 20);
             this.lblNet.TabIndex = 9;
             this.lblNet.Text = "순매출 : 0원";
             // 
+<<<<<<< HEAD
+=======
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(292, 96);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 19);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "전체";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(356, 96);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(73, 19);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "미환불";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(435, 96);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(58, 19);
+            this.radioButton3.TabIndex = 12;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "환불";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             // FormShipmentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(937, 477);
+=======
+            this.ClientSize = new System.Drawing.Size(1017, 558);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.Controls.Add(this.lblNet);
             this.Controls.Add(this.lblRefund);
             this.Controls.Add(this.lblTotal);
@@ -205,5 +254,8 @@
         private System.Windows.Forms.Label lblRefund;
         private System.Windows.Forms.Label lblNet;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }

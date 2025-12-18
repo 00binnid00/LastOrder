@@ -51,6 +51,9 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -269,12 +272,40 @@
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(589, 20);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(119, 23);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Thistle;
+            this.button5.Location = new System.Drawing.Point(906, 17);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(93, 31);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "상품 검색";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(714, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(177, 25);
+            this.textBox1.TabIndex = 25;
+            // 
             // FormProductManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1018, 613);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -320,5 +351,8 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

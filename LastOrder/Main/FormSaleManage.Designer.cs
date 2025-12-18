@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCategoryDrink = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.btnCategorySnack = new System.Windows.Forms.Button();
             this.btnCategoryRamen = new System.Windows.Forms.Button();
             this.btnCategoryBread = new System.Windows.Forms.Button();
@@ -55,6 +56,23 @@
             this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+=======
+            this.colCartName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCartQty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCartAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvCart = new System.Windows.Forms.ListView();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.colProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvProduct = new System.Windows.Forms.ListView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.numQty = new System.Windows.Forms.NumericUpDown();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.SuspendLayout();
@@ -219,6 +237,7 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+<<<<<<< HEAD
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.Thistle;
@@ -254,6 +273,22 @@
             this.lblTotal.TabIndex = 5;
             this.lblTotal.Text = "총 금액 : 0원";
             this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
+=======
+            // colCartName
+            // 
+            this.colCartName.Text = "상품명";
+            this.colCartName.Width = 150;
+            // 
+            // colCartQty
+            // 
+            this.colCartQty.Text = "수량";
+            this.colCartQty.Width = 100;
+            // 
+            // colCartAmount
+            // 
+            this.colCartAmount.Text = "금액";
+            this.colCartAmount.Width = 100;
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             // 
             // lvCart
             // 
@@ -271,6 +306,7 @@
             this.lvCart.UseCompatibleStateImageBehavior = false;
             this.lvCart.View = System.Windows.Forms.View.Details;
             // 
+<<<<<<< HEAD
             // colCartName
             // 
             this.colCartName.Text = "상품명";
@@ -316,6 +352,9 @@
             0});
             // 
             // lvProduct
+=======
+            // lblTotal
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             // 
             this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colProductName,
@@ -337,6 +376,7 @@
             this.colProductName.Text = "상품명";
             this.colProductName.Width = 150;
             // 
+<<<<<<< HEAD
             // colPrice
             // 
             this.colPrice.Text = "가격";
@@ -351,6 +391,19 @@
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = false;
+=======
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Thistle;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.Location = new System.Drawing.Point(770, 465);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(109, 30);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "선택 취소";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             // 
             // txtSearch
             // 
@@ -358,6 +411,79 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(363, 25);
             this.txtSearch.TabIndex = 9;
+            // 
+            // colProductName
+            // 
+            this.colProductName.Text = "상품명";
+            this.colProductName.Width = 150;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Text = "가격";
+            this.colPrice.Width = 100;
+            // 
+            // lvProduct
+            // 
+            this.lvProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colProductName,
+            this.colPrice});
+            this.lvProduct.FullRowSelect = true;
+            this.lvProduct.HideSelection = false;
+            this.lvProduct.Location = new System.Drawing.Point(183, 58);
+            this.lvProduct.MultiSelect = false;
+            this.lvProduct.Name = "lvProduct";
+            this.lvProduct.Size = new System.Drawing.Size(811, 152);
+            this.lvProduct.TabIndex = 1;
+            this.lvProduct.UseCompatibleStateImageBehavior = false;
+            this.lvProduct.View = System.Windows.Forms.View.Details;
+            this.lvProduct.SelectedIndexChanged += new System.EventHandler(this.lvProduct_SelectedIndexChanged);
+            this.lvProduct.Click += new System.EventHandler(this.lvProduct_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Thistle;
+            this.btnAdd.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAdd.Location = new System.Drawing.Point(837, 222);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(157, 30);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "담기";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAddCart_Click);
+            // 
+            // numQty
+            // 
+            this.numQty.Location = new System.Drawing.Point(657, 225);
+            this.numQty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQty.Name = "numQty";
+            this.numQty.Size = new System.Drawing.Size(157, 25);
+            this.numQty.TabIndex = 4;
+            this.numQty.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(673, 15);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(237, 25);
+            this.txtSearch.TabIndex = 9;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Thistle;
+            this.btnSearch.Location = new System.Drawing.Point(918, 14);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 29);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // FormSaleManage
             // 
@@ -401,9 +527,19 @@
         private System.Windows.Forms.Button btnCategoryRamen;
         private System.Windows.Forms.Button btnCategorySnack;
         private System.Windows.Forms.Button btnCategoryDrink;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.ColumnHeader colCartName;
+        private System.Windows.Forms.ColumnHeader colCartQty;
+        private System.Windows.Forms.ColumnHeader colCartAmount;
+        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnPay;
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnClear;
+<<<<<<< HEAD
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ListView lvCart;
         private System.Windows.Forms.ColumnHeader colCartName;
@@ -416,6 +552,15 @@
         private System.Windows.Forms.ColumnHeader colPrice;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+=======
+        private System.Windows.Forms.ColumnHeader colProductName;
+        private System.Windows.Forms.ColumnHeader colPrice;
+        private System.Windows.Forms.ListView lvProduct;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.NumericUpDown numQty;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
     }
 }
 

@@ -63,6 +63,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiscountValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGet)).BeginInit();
@@ -131,9 +132,9 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(12, 56);
+            this.txtSearch.Location = new System.Drawing.Point(524, 53);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(399, 25);
+            this.txtSearch.Size = new System.Drawing.Size(306, 25);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
@@ -141,7 +142,11 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Thistle;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+<<<<<<< HEAD
             this.btnSearch.Location = new System.Drawing.Point(426, 52);
+=======
+            this.btnSearch.Location = new System.Drawing.Point(843, 50);
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(85, 33);
             this.btnSearch.TabIndex = 3;
@@ -380,7 +385,11 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Thistle;
             this.btnDelete.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+<<<<<<< HEAD
             this.btnDelete.Location = new System.Drawing.Point(795, 437);
+=======
+            this.btnDelete.Location = new System.Drawing.Point(795, 429);
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(135, 49);
             this.btnDelete.TabIndex = 7;
@@ -392,7 +401,11 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Thistle;
             this.btnRefresh.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+<<<<<<< HEAD
             this.btnRefresh.Location = new System.Drawing.Point(795, 516);
+=======
+            this.btnRefresh.Location = new System.Drawing.Point(795, 504);
+>>>>>>> 80198e2a8585f3cc1deead29823c6192e83bdb18
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(135, 49);
             this.btnRefresh.TabIndex = 8;
@@ -400,12 +413,21 @@
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(371, 53);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(144, 23);
+            this.comboBox1.TabIndex = 9;
+            // 
             // FormEventManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(942, 592);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -465,5 +487,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.NumericUpDown numDiscountValue;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

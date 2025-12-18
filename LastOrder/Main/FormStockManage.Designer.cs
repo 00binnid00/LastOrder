@@ -47,6 +47,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +73,7 @@
             this.listViewProduct.FullRowSelect = true;
             this.listViewProduct.GridLines = true;
             this.listViewProduct.HideSelection = false;
-            this.listViewProduct.Location = new System.Drawing.Point(16, 47);
+            this.listViewProduct.Location = new System.Drawing.Point(18, 54);
             this.listViewProduct.Name = "listViewProduct";
             this.listViewProduct.Size = new System.Drawing.Size(759, 266);
             this.listViewProduct.TabIndex = 9;
@@ -215,12 +218,40 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(492, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(177, 25);
+            this.textBox1.TabIndex = 22;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Thistle;
+            this.button5.Location = new System.Drawing.Point(684, 14);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(93, 31);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "상품 검색";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(367, 17);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(119, 23);
+            this.comboBox1.TabIndex = 24;
+            // 
             // FormStockManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(800, 469);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -264,5 +295,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

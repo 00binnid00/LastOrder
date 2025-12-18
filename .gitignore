@@ -1,6 +1,7 @@
 bin/
 obj/
-*.exe/n*.dll
+*.exe
+*.dll
 *.pdb
 *.cache
 *.config
